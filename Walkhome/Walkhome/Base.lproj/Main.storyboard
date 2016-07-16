@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IW7-zt-MKd">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IW7-zt-MKd">
                                 <rect key="frame" x="279" y="179" width="42" height="30"/>
                                 <state key="normal" title="Log in"/>
                                 <connections>
@@ -27,6 +26,10 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IW7-zt-MKd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8nX-op-NQS"/>
+                            <constraint firstItem="IW7-zt-MKd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="159" id="Wlk-fO-6g3"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="IW7-zt-MKd" id="V3Y-OI-5SF"/>
@@ -47,25 +50,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Gtz-VQ-MLI">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Gtz-VQ-MLI">
+                                <rect key="frame" x="0.0" y="0.0" width="601" height="601"/>
                                 <subviews>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3B3-3C-djG">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="580"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="580" id="pto-vb-xEt"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="0.0" width="601" height="601"/>
                                     </mapView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Gtz-VQ-MLI" secondAttribute="height" multiplier="30:29" id="j2H-rR-jOd"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Gtz-VQ-MLI" firstAttribute="centerX" secondItem="BvK-WG-Mef" secondAttribute="centerX" id="FC8-Zu-I9j"/>
-                            <constraint firstItem="Gtz-VQ-MLI" firstAttribute="centerY" secondItem="BvK-WG-Mef" secondAttribute="centerY" id="QFN-Wy-4kA"/>
+                            <constraint firstItem="Gtz-VQ-MLI" firstAttribute="leading" secondItem="BvK-WG-Mef" secondAttribute="leading" id="JAf-q5-vrZ"/>
+                            <constraint firstItem="Gtz-VQ-MLI" firstAttribute="top" secondItem="BvK-WG-Mef" secondAttribute="top" id="M0O-OY-M6W"/>
+                            <constraint firstItem="Gtz-VQ-MLI" firstAttribute="centerY" secondItem="BvK-WG-Mef" secondAttribute="centerY" id="d5g-6I-04Q"/>
+                            <constraint firstItem="Gtz-VQ-MLI" firstAttribute="centerX" secondItem="BvK-WG-Mef" secondAttribute="centerX" id="pK4-nm-kFx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jj8-E7-YyY"/>
@@ -75,7 +74,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZVY-rv-pRY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1555" y="194"/>
+            <point key="canvasLocation" x="-1289" y="-1207"/>
         </scene>
     </scenes>
 </document>

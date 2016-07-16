@@ -22,6 +22,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
+        //let lat = locationManager.location!.coordinate.latitude
+        //let long = locationManager.location!.coordinate.longitude
+        //print ("Latitude", lat, "Longitude: ", long)
+        let pin = MKPointAnnotation()
+        pin.coordinate = CLLocationCoordinate2DMake(44.228454, -76.494484)
+        mapView.addAnnotation(pin)
         let region = MKCoordinateRegionMakeWithDistance(
             (locationManager.location?.coordinate)!, 2000, 2000)
         mapView.setRegion(region, animated: true)
