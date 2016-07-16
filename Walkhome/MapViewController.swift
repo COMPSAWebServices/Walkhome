@@ -22,6 +22,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
+        let region = MKCoordinateRegionMakeWithDistance(
+            (locationManager.location?.coordinate)!, 2000, 2000)
+        mapView.setRegion(region, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
