@@ -15,6 +15,7 @@
 		A0C3F6F41D38972A0016004E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0C3F6F31D38972A0016004E /* Assets.xcassets */; };
 		A0C3F6F71D38972A0016004E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0C3F6F51D38972A0016004E /* LaunchScreen.storyboard */; };
 		EF0F4DF41D3A89D8002A250E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0F4DF31D3A89D8002A250E /* MapViewController.swift */; };
+		EF80A6C51D3AD7130060CF2C /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF80A6C41D3AD7130060CF2C /* CustomAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A0C3F6F61D38972A0016004E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0C3F6F81D38972A0016004E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF0F4DF31D3A89D8002A250E /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		EF80A6C41D3AD7130060CF2C /* CustomAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				A0C3F6EC1D38972A0016004E /* AppDelegate.swift */,
 				EF0F4DF31D3A89D8002A250E /* MapViewController.swift */,
+				EF80A6C41D3AD7130060CF2C /* CustomAnnotation.swift */,
 				A0C3F6EE1D38972A0016004E /* ViewController.swift */,
 				A0C3F6F01D38972A0016004E /* Main.storyboard */,
 				A0C3F6F31D38972A0016004E /* Assets.xcassets */,
@@ -148,6 +151,7 @@
 			files = (
 				A0C3F6EF1D38972A0016004E /* ViewController.swift in Sources */,
 				EF0F4DF41D3A89D8002A250E /* MapViewController.swift in Sources */,
+				EF80A6C51D3AD7130060CF2C /* CustomAnnotation.swift in Sources */,
 				A02D29CE1D3AA31000710F54 /* plistModule.swift in Sources */,
 				A0C3F6ED1D38972A0016004E /* AppDelegate.swift in Sources */,
 			);

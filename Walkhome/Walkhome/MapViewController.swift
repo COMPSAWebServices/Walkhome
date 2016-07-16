@@ -17,6 +17,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Map"
+        mapView.delegate = self
         self.locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -27,17 +28,35 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         //print ("Latitude", lat, "Longitude: ", long)
         let pin = MKPointAnnotation()
         pin.coordinate = CLLocationCoordinate2DMake(44.228454, -76.494484)
+        pin.title = "Walkhome HQ"
         mapView.addAnnotation(pin)
         let region = MKCoordinateRegionMakeWithDistance(
             (locationManager.location?.coordinate)!, 2000, 2000)
         mapView.setRegion(region, animated: true)
+    }
+    
+    func mapView(mapView: MKMapView,
+                 viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        if (annotation is MKUserLocation) { return nil }
+        
+        let reuseID = "chest"
+        var customV = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseID)
+        
+        if customV != nil {
+            customV!.annotation = annotation
+        } else {
+            customV = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
+            
+            customV!.image = UIImage(named:"MapMarker")
+        }
+        
+        return customV
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation
