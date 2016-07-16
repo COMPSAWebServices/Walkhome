@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A02D29CE1D3AA31000710F54 /* plistModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D29CD1D3AA31000710F54 /* plistModule.swift */; };
+		A02D29D01D3AA34900710F54 /* localDB.plist in Resources */ = {isa = PBXBuildFile; fileRef = A02D29CF1D3AA34900710F54 /* localDB.plist */; };
 		A0C3F6ED1D38972A0016004E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C3F6EC1D38972A0016004E /* AppDelegate.swift */; };
 		A0C3F6EF1D38972A0016004E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C3F6EE1D38972A0016004E /* ViewController.swift */; };
 		A0C3F6F21D38972A0016004E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0C3F6F01D38972A0016004E /* Main.storyboard */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A02D29CD1D3AA31000710F54 /* plistModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = plistModule.swift; sourceTree = "<group>"; };
+		A02D29CF1D3AA34900710F54 /* localDB.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = localDB.plist; sourceTree = "<group>"; };
 		A0C3F6E91D38972A0016004E /* Walkhome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Walkhome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0C3F6EC1D38972A0016004E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0C3F6EE1D38972A0016004E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				A0C3F6F31D38972A0016004E /* Assets.xcassets */,
 				A0C3F6F51D38972A0016004E /* LaunchScreen.storyboard */,
 				A0C3F6F81D38972A0016004E /* Info.plist */,
+				A02D29CD1D3AA31000710F54 /* plistModule.swift */,
+				A02D29CF1D3AA34900710F54 /* localDB.plist */,
 			);
 			path = Walkhome;
 			sourceTree = "<group>";
@@ -126,6 +132,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A02D29D01D3AA34900710F54 /* localDB.plist in Resources */,
 				A0C3F6F71D38972A0016004E /* LaunchScreen.storyboard in Resources */,
 				A0C3F6F41D38972A0016004E /* Assets.xcassets in Resources */,
 				A0C3F6F21D38972A0016004E /* Main.storyboard in Resources */,
@@ -141,6 +148,7 @@
 			files = (
 				A0C3F6EF1D38972A0016004E /* ViewController.swift in Sources */,
 				EF0F4DF41D3A89D8002A250E /* MapViewController.swift in Sources */,
+				A02D29CE1D3AA31000710F54 /* plistModule.swift in Sources */,
 				A0C3F6ED1D38972A0016004E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

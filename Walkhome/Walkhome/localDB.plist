@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>walk</key>
+	<array>
+		<dict>
+			<key>status</key>
+			<string>0</string>
+			<key>time</key>
+			<string>1468692287</string>
+			<key>from</key>
+			<string>Stages</string>
+			<key>to</key>
+			<string>Leggett</string>
+		</dict>
+	</array>
+	<key>user</key>
+	<array>
+		<dict>
+			<key>local_id</key>
+			<string>0</string>
+			<key>local_username</key>
+			<string>Steve Jobs</string>
+			<key>phone number</key>
+			<string>6131234567</string>
+			<key>username</key>
+			<string>stevejobs4567</string>
+		</dict>
+	</array>
+</dict>
+</plist>
