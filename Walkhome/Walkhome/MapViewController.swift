@@ -23,43 +23,33 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
-        //let lat = locationManager.location!.coordinate.latitude
-        //let long = locationManager.location!.coordinate.longitude
-        //print ("Latitude", lat, "Longitude: ", long)
-        //let pin = MKPointAnnotation()
-        //pin.coordinate = CLLocationCoordinate2DMake(44.228454, -76.494484)
-        //pin.title = "Walkhome HQ"
-        //mapView.addAnnotation(pin)
         
-        /*
-        var pin1 = CustomAnnotation()
-        pin1.coordinate = CLLocationCoordinate2DMake(44.228454, -76.494484)
-        pin1.title = "WalkHome HQ"
-        pin1.imageName = "WalkHomeHQ"
+        let whPin = CustomAnnotation()
+        whPin.coordinate = CLLocationCoordinate2DMake(44.228454, -76.494484)
+        whPin.title = "WalkHome HQ"
+        whPin.imageName = "WalkHomeHQ"
         
-        var pin2 = CustomAnnotation()
-        pin2.coordinate = CLLocationCoordinate2DMake(44.2253833,-76.499311)
-        pin2.title = "Somewhere"
-        pin2.imageName = "MapMarker"
+        let csPin = CustomAnnotation()
+        csPin.coordinate = CLLocationCoordinate2DMake(44.225315, -76.498425)
+        csPin.title = "Campus Security"
+        csPin.imageName = "CampusSecurity"
 
-        mapView.addAnnotation(pin1)
-        mapView.addAnnotation(pin2)
-        */
+        mapView.addAnnotation(whPin)
+        mapView.addAnnotation(csPin)
+
         
-        // WalkHome HQ, Campus Security, Isabel Centre Blue Lights x2, West Campus x10
-        // To do: separate the blue lights and other things. Add the blue lights on campus
-        let colocLat = [44.228454, 44.2253833, 44.220355, 44.221264, 44.224576, 44.223813, 44.224725, 44.225449, 44.227653, 44.226679, 44.225250, 44.224528, 44.223522, 44.229975]
-        let colocLong = [-76.494484, -76.499311, -76.507071, -76.506446, -76.509949, -76.513372, -76.513421, -76.514355, -76.514087, -76.516331, -76.516608, -76.516004, -76.515209, -76.516415]
-        let colocImage = ["WalkHomeHQ", "CampusSecurity", "BlueLight", "BlueLight", "BlueLight", "BlueLight", "BlueLight", "BlueLight", "BlueLight", "BlueLight", "BlueLight", "BlueLight", "BlueLight", "BlueLight"]
-        let colocTitle = ["WalkHome HQ", "Campus Security", "Blue Light", "Blue Light", "Blue Light", "Blue Light", "Blue Light", "Blue Light", "Blue Light", "Blue Light", "Blue Light", "Blue Light", "Blue Light", "Blue Light"]
-        let size = colocLat.count
+        // Isabel Centre Blue Lights x2, West Campus x10, Harkness x2, Goodes x7, Stauffer x2, JDUC x2, Kin x1, ARC x6, Dupuis x1, WLH x2
+        // To do: Add the blue lights on campus, and make the option to hide the blue lights
+        let blLat = [44.220355, 44.221264, 44.224576, 44.223813, 44.224725, 44.225449, 44.227653, 44.226679, 44.225250, 44.224528, 44.223522, 44.229975, 44.230088, 44.230081, 44.228578, 44.228498, 44.228491, 44.228047, 44.227789, 44.227700, 44.227732, 44.228022, 44.229008, 44.228843, 44.228082, 44.228845, 44.228902, 44.228995, 44.229276, 44.229394, 44.229377, 44.229693, 44.228681, 44.228223, 44.227765]
+        let blLong = [-76.507071, -76.506446, -76.509949, -76.513372, -76.513421, -76.514355, -76.514087, -76.516331, -76.516608, -76.516004, -76.515209, -76.516415, -76.497494, -76.497933, -76.497471,  -76.497948, -76.498151, -76.497865, -76.497740, -76.498158, -76.498021, -76.496618, -76.495883, 76.495386, -76.494686, -76.493141, -76.494458, -76.494284, -76.494703, -76.494104, -76.493692, -76.494316, -76.492179, -76.491696, -76.491683]
+        let size = blLat.count
         
         for i in 0..<size {
-            let pin = CustomAnnotation()
-            pin.coordinate = CLLocationCoordinate2DMake(colocLat[i], colocLong[i])
-            pin.title = colocTitle[i]
-            pin.imageName = colocImage[i]
-            mapView.addAnnotation(pin)
+            let blPin = CustomAnnotation()
+            blPin.coordinate = CLLocationCoordinate2DMake(blLat[i], blLong[i])
+            blPin.title = "Blue Light"
+            blPin.imageName = "BlueLight"
+            mapView.addAnnotation(blPin)
         }
  
         let region = MKCoordinateRegionMakeWithDistance(
@@ -92,39 +82,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         return customV
     }
     
-    /*
-    func mapView(mapView: MKMapView,
-                 viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        if (annotation is MKUserLocation) { return nil }
-        
-        let reuseID = "test"
-        var customV = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseID)
-        
-        if customV != nil {
-            customV!.annotation = annotation
-        } else {
-            customV = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
-            
-            customV!.image = UIImage(named:"WalkHomeHQ")
-        }
-        
-        return customV
-    }
-    */
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
