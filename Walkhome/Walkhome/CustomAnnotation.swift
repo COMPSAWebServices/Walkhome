@@ -9,6 +9,6 @@
 import Foundation
 import MapKit
 
-class CustomPointAnnotation: MKPointAnnotation {
+class CustomAnnotation: MKPointAnnotation {
     var imageName: String!
 }
