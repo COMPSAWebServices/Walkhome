@@ -37,6 +37,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-2035" y="-1207"/>
         </scene>
         <!--map-->
         <scene sceneID="sLN-SG-2JI">
