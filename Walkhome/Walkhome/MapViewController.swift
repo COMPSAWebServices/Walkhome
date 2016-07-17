@@ -46,11 +46,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.addAnnotation(pin2)
         */
         
-        // WalkHome HQ, Campus Security, Isabel Centre Blue Lights x2, West Campus x9
-        let colocLat = [44.228454, 44.2253833, 44.220355, 44.221264, 44.224576, 44.223813, 44.224725, 44.225449, 44.227653, 44.226679, 44.225250, 44.224528, 44.223522]
-        let colocLong = [-76.494484, -76.499311, -76.507071, -76.506446, -76.509949, -76.513372, -76.513421, -76.514355, -76.514087, -76.516331, -76.516608, -76.516004, -76.515209]
-        let colocImage = ["WalkHomeHQ", "Current", "MapMarker", "MapMarker", "MapMarker", "MapMarker", "MapMarker", "MapMarker", "MapMarker", "MapMarker", "MapMarker", "MapMarker", "MapMarker"]
-        let colocTitle = ["WalkHome HQ", "Campus Security", "Blue Light", "Blue Light", "Blue Light", "Blue Light", "Blue Light", "Blue Light", "Blue Light", "Blue Light", "Blue Light", "Blue Light", "Blue Light"]
+        // WalkHome HQ, Campus Security, Isabel Centre Blue Lights x2, West Campus x10
+        // To do: separate the blue lights and other things. Add the blue lights on campus
+        let colocLat = [44.228454, 44.2253833, 44.220355, 44.221264, 44.224576, 44.223813, 44.224725, 44.225449, 44.227653, 44.226679, 44.225250, 44.224528, 44.223522, 44.229975]
+        let colocLong = [-76.494484, -76.499311, -76.507071, -76.506446, -76.509949, -76.513372, -76.513421, -76.514355, -76.514087, -76.516331, -76.516608, -76.516004, -76.515209, -76.516415]
+        let colocImage = ["WalkHomeHQ", "CampusSecurity", "BlueLight", "BlueLight", "BlueLight", "BlueLight", "BlueLight", "BlueLight", "BlueLight", "BlueLight", "BlueLight", "BlueLight", "BlueLight", "BlueLight"]
+        let colocTitle = ["WalkHome HQ", "Campus Security", "Blue Light", "Blue Light", "Blue Light", "Blue Light", "Blue Light", "Blue Light", "Blue Light", "Blue Light", "Blue Light", "Blue Light", "Blue Light", "Blue Light"]
         let size = colocLat.count
         
         for i in 0..<size {
@@ -60,8 +61,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             pin.imageName = colocImage[i]
             mapView.addAnnotation(pin)
         }
-        
-        
  
         let region = MKCoordinateRegionMakeWithDistance(
             (locationManager.location?.coordinate)!, 2000, 2000)
