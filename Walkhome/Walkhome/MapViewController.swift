@@ -23,6 +23,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
+        let polyLinePoints = [CLLocation(latitude: 44.228454, longitude: -76.494484), CLLocation(latitude: 44.225315,longitude: -76.498425)]
+        var polyLineCord = polyLinePoints.map({(location: CLLocation!) -> CLLocationCoordinate2D in return location.coordinate})
+        let polyline = MKPolyline(coordinates: &polyLineCord, count: polyLinePoints.count)
+        self.mapView.addOverlay(polyline)
         
         let whPin = CustomAnnotation()
         whPin.coordinate = CLLocationCoordinate2DMake(44.228454, -76.494484)
@@ -57,6 +61,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.setRegion(region, animated: true)
     }
     
+    //For custom pins
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         if !(annotation is CustomAnnotation) {
             return nil
@@ -73,13 +78,23 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             customV!.annotation = annotation
         }
         
-        //Set annotation-specific properties **AFTER**
-        //the view is dequeued or created...
-        
+        //Gives the pin the custom image
         let cpa = annotation as! CustomAnnotation
         customV!.image = UIImage(named:cpa.imageName)
         
         return customV
+    }
+    
+    //For polylines
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        if overlay is MKPolyline {
+            let polylineRenderer = MKPolylineRenderer(overlay: overlay)
+            polylineRenderer.strokeColor = UIColor.blackColor()
+            polylineRenderer.lineWidth = 3
+            return polylineRenderer
+        }
+        
+        return MKPolylineRenderer()
     }
     
     override func didReceiveMemoryWarning() {
