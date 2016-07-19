@@ -23,7 +23,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
-        let polyLinePoints = [CLLocation(latitude: 44.228454, longitude: -76.494484), CLLocation(latitude: 44.225315,longitude: -76.498425)]
+        //CLLocation(latitude: ,longitude: )
+        //Change this to for loop once finished
+        let polyLinePoints = [CLLocation(latitude: 44.240166, longitude: -76.523437), CLLocation(latitude: 44.241219,longitude: -76.511355), CLLocation(latitude: 44.240358,longitude: -76.509413), CLLocation(latitude: 44.238836,longitude: -76.505905), CLLocation(latitude: 44.239812,longitude: -76.505948), CLLocation(latitude: 44.238920,longitude: -76.503952), CLLocation(latitude: 44.238958,longitude: -76.503351), CLLocation(latitude: 44.238551,longitude: -76.502021), CLLocation(latitude: 44.238720,longitude: -76.497933), CLLocation(latitude: 44.239197,longitude: -76.497976), CLLocation(latitude: 44.239274,longitude: -76.496506), CLLocation(latitude: 44.239043,longitude: -76.496463), CLLocation(latitude: 44.238151,longitude: -76.494349), CLLocation(latitude: 44.237966,longitude: -76.493662), CLLocation(latitude: 44.237566,longitude: -76.492729), CLLocation(latitude: 44.235383,longitude: -76.489553), CLLocation(latitude: 44.234841,longitude: -76.486699), CLLocation(latitude: 44.234820,longitude: -76.482682), CLLocation(latitude: 44.234543,longitude: -76.481631), CLLocation(latitude: 44.234220,longitude: -76.481309), CLLocation(latitude: 44.234112,longitude: -76.480912), CLLocation(latitude: 44.234058,longitude: -76.480655), CLLocation(latitude: 44.233966,longitude: -76.480580), CLLocation(latitude: 44.233814,longitude: -76.479593), CLLocation(latitude: 44.233874,longitude: -76.479181), CLLocation(latitude: 44.233905,longitude: -76.478976), CLLocation(latitude: 44.233851,longitude: -76.478795), CLLocation(latitude: 44.233667,longitude: -76.478634), CLLocation(latitude: 44.233384,longitude: -76.477190)]
         var polyLineCord = polyLinePoints.map({(location: CLLocation!) -> CLLocationCoordinate2D in return location.coordinate})
         let polyline = MKPolyline(coordinates: &polyLineCord, count: polyLinePoints.count)
         self.mapView.addOverlay(polyline)
@@ -57,7 +59,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
  
         let region = MKCoordinateRegionMakeWithDistance(
-            (locationManager.location?.coordinate)!, 2000, 2000)
+            (locationManager.location?.coordinate)!, 1500, 1500)
         mapView.setRegion(region, animated: true)
     }
     
