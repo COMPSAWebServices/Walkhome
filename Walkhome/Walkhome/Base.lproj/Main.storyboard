@@ -14,7 +14,7 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="Logi">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -94,7 +94,6 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="mapView" destination="IW7-zt-MKd" id="V3Y-OI-5SF"/>
                         <outlet property="phoneTextField" destination="FZZ-i3-pQW" id="VI3-kj-YPA"/>
                         <outlet property="phonenumberError" destination="Uh5-Ku-xbU" id="tvn-Ee-T9Q"/>
                         <outlet property="usernameError" destination="Ern-IR-XPX" id="e48-4J-2ny"/>
@@ -103,11 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< Updated upstream
-            <point key="canvasLocation" x="-2035" y="-1207"/>
-=======
             <point key="canvasLocation" x="410" y="349"/>
->>>>>>> Stashed changes
         </scene>
         <!--map-->
         <scene sceneID="sLN-SG-2JI">
