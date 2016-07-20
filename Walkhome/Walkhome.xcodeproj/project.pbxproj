@@ -14,12 +14,12 @@
 		A0AFE8F61D3CF84C00DDBB4B /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AFE8F51D3CF84C00DDBB4B /* FeedbackViewController.swift */; };
 		A0B5C4021D3BDF21002649B7 /* WHAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B5C4011D3BDF21002649B7 /* WHAPI.swift */; };
 		A0C3F6ED1D38972A0016004E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C3F6EC1D38972A0016004E /* AppDelegate.swift */; };
-		A0C3F6EF1D38972A0016004E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C3F6EE1D38972A0016004E /* ViewController.swift */; };
 		A0C3F6F21D38972A0016004E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0C3F6F01D38972A0016004E /* Main.storyboard */; };
 		A0C3F6F41D38972A0016004E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0C3F6F31D38972A0016004E /* Assets.xcassets */; };
 		A0C3F6F71D38972A0016004E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0C3F6F51D38972A0016004E /* LaunchScreen.storyboard */; };
 		EF0F4DF41D3A89D8002A250E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0F4DF31D3A89D8002A250E /* MapViewController.swift */; };
 		EF80A6C51D3AD7130060CF2C /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF80A6C41D3AD7130060CF2C /* CustomAnnotation.swift */; };
+		EFF26ED01D400C8B00872021 /* PopupTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF26ECF1D400C8B00872021 /* PopupTestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,13 +31,13 @@
 		A0B5C4011D3BDF21002649B7 /* WHAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WHAPI.swift; sourceTree = "<group>"; };
 		A0C3F6E91D38972A0016004E /* Walkhome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Walkhome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0C3F6EC1D38972A0016004E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A0C3F6EE1D38972A0016004E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A0C3F6F11D38972A0016004E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A0C3F6F31D38972A0016004E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0C3F6F61D38972A0016004E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0C3F6F81D38972A0016004E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF0F4DF31D3A89D8002A250E /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		EF80A6C41D3AD7130060CF2C /* CustomAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
+		EFF26ECF1D400C8B00872021 /* PopupTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupTestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +73,6 @@
 				A0C3F6EC1D38972A0016004E /* AppDelegate.swift */,
 				EF0F4DF31D3A89D8002A250E /* MapViewController.swift */,
 				EF80A6C41D3AD7130060CF2C /* CustomAnnotation.swift */,
-				A0C3F6EE1D38972A0016004E /* ViewController.swift */,
 				A0C3F6F01D38972A0016004E /* Main.storyboard */,
 				A0C3F6F31D38972A0016004E /* Assets.xcassets */,
 				A0C3F6F51D38972A0016004E /* LaunchScreen.storyboard */,
@@ -84,6 +83,7 @@
 				A0AFE8F11D3C58CF00DDBB4B /* LoginViewController.swift */,
 				A0AFE8F31D3CF4B700DDBB4B /* StatusViewController.swift */,
 				A0AFE8F51D3CF84C00DDBB4B /* FeedbackViewController.swift */,
+				EFF26ECF1D400C8B00872021 /* PopupTestViewController.swift */,
 			);
 			path = Walkhome;
 			sourceTree = "<group>";
@@ -163,11 +163,11 @@
 			files = (
 				A0AFE8F41D3CF4B700DDBB4B /* StatusViewController.swift in Sources */,
 				A0AFE8F21D3C58CF00DDBB4B /* LoginViewController.swift in Sources */,
-				A0C3F6EF1D38972A0016004E /* ViewController.swift in Sources */,
 				EF0F4DF41D3A89D8002A250E /* MapViewController.swift in Sources */,
 				EF80A6C51D3AD7130060CF2C /* CustomAnnotation.swift in Sources */,
 				A0B5C4021D3BDF21002649B7 /* WHAPI.swift in Sources */,
 				A02D29CE1D3AA31000710F54 /* plistModule.swift in Sources */,
+				EFF26ED01D400C8B00872021 /* PopupTestViewController.swift in Sources */,
 				A0AFE8F61D3CF84C00DDBB4B /* FeedbackViewController.swift in Sources */,
 				A0C3F6ED1D38972A0016004E /* AppDelegate.swift in Sources */,
 			);

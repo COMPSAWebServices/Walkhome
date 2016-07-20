@@ -59,7 +59,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
  
         let region = MKCoordinateRegionMakeWithDistance(
-            (locationManager.location?.coordinate)!, 1500, 1500)
+            (locationManager.location?.coordinate)!, 1200, 1200)
         mapView.setRegion(region, animated: true)
     }
     
