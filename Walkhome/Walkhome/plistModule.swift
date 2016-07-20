@@ -87,4 +87,16 @@ class accessPlist {
             }
         }
     }
+    /* Get row from local database
+     * @param table {String}: Name of the table to insert into
+     * @param row {NSDictionary{String:String}}: Row Dictionary to insert
+     * @return {Bool}: Successful insert or not
+     * Example: accessPlist().update("walk", )
+     */
+    func update(table: String, get_field: String, get_value: String, set_field: String, set_value: String) -> Bool {
+        let rows = get(table, field: get_field, value: get_value)
+        let row = rows![0] as! NSMutableDictionary
+        row.setObject(set_value, forKey: set_field)
+        return set(table, row: row)
+    }
 }

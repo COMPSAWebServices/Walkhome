@@ -5,6 +5,8 @@
 	<key>walk</key>
 	<array>
 		<dict>
+			<key>current</key>
+			<string>1</string>
 			<key>status</key>
 			<string>0</string>
 			<key>time</key>
@@ -18,11 +20,11 @@
 	<key>user</key>
 	<array>
 		<dict>
-			<key>local_id</key>
-			<string>0</string>
-			<key>local_username</key>
-			<string>Steve Jobs</string>
-			<key>phone number</key>
+			<key>device_id</key>
+			<string>123</string>
+			<key>id</key>
+			<string>1</string>
+			<key>phone_number</key>
 			<string>6131234567</string>
 			<key>username</key>
 			<string>stevejobs4567</string>

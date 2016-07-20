@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		A02D29CE1D3AA31000710F54 /* plistModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D29CD1D3AA31000710F54 /* plistModule.swift */; };
 		A02D29D01D3AA34900710F54 /* localDB.plist in Resources */ = {isa = PBXBuildFile; fileRef = A02D29CF1D3AA34900710F54 /* localDB.plist */; };
+		A0AFE8F21D3C58CF00DDBB4B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AFE8F11D3C58CF00DDBB4B /* LoginViewController.swift */; };
+		A0AFE8F41D3CF4B700DDBB4B /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AFE8F31D3CF4B700DDBB4B /* StatusViewController.swift */; };
+		A0AFE8F61D3CF84C00DDBB4B /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AFE8F51D3CF84C00DDBB4B /* FeedbackViewController.swift */; };
 		A0B5C4021D3BDF21002649B7 /* WHAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B5C4011D3BDF21002649B7 /* WHAPI.swift */; };
 		A0C3F6ED1D38972A0016004E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C3F6EC1D38972A0016004E /* AppDelegate.swift */; };
 		A0C3F6EF1D38972A0016004E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C3F6EE1D38972A0016004E /* ViewController.swift */; };
@@ -22,6 +25,9 @@
 /* Begin PBXFileReference section */
 		A02D29CD1D3AA31000710F54 /* plistModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = plistModule.swift; sourceTree = "<group>"; };
 		A02D29CF1D3AA34900710F54 /* localDB.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = localDB.plist; sourceTree = "<group>"; };
+		A0AFE8F11D3C58CF00DDBB4B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A0AFE8F31D3CF4B700DDBB4B /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
+		A0AFE8F51D3CF84C00DDBB4B /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		A0B5C4011D3BDF21002649B7 /* WHAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WHAPI.swift; sourceTree = "<group>"; };
 		A0C3F6E91D38972A0016004E /* Walkhome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Walkhome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0C3F6EC1D38972A0016004E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +81,9 @@
 				A02D29CD1D3AA31000710F54 /* plistModule.swift */,
 				A02D29CF1D3AA34900710F54 /* localDB.plist */,
 				A0B5C4011D3BDF21002649B7 /* WHAPI.swift */,
+				A0AFE8F11D3C58CF00DDBB4B /* LoginViewController.swift */,
+				A0AFE8F31D3CF4B700DDBB4B /* StatusViewController.swift */,
+				A0AFE8F51D3CF84C00DDBB4B /* FeedbackViewController.swift */,
 			);
 			path = Walkhome;
 			sourceTree = "<group>";
@@ -152,11 +161,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0AFE8F41D3CF4B700DDBB4B /* StatusViewController.swift in Sources */,
+				A0AFE8F21D3C58CF00DDBB4B /* LoginViewController.swift in Sources */,
 				A0C3F6EF1D38972A0016004E /* ViewController.swift in Sources */,
 				EF0F4DF41D3A89D8002A250E /* MapViewController.swift in Sources */,
 				EF80A6C51D3AD7130060CF2C /* CustomAnnotation.swift in Sources */,
 				A0B5C4021D3BDF21002649B7 /* WHAPI.swift in Sources */,
 				A02D29CE1D3AA31000710F54 /* plistModule.swift in Sources */,
+				A0AFE8F61D3CF84C00DDBB4B /* FeedbackViewController.swift in Sources */,
 				A0C3F6ED1D38972A0016004E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

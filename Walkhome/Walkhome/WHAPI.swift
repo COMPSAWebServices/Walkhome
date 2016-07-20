@@ -36,9 +36,14 @@ class api {
         request.setBodyContent(parameters)
         //create dataTask using the session object to send data to the server
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
-            //let strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            //print("Body: \(strData)")
-            let json = try!NSJSONSerialization.JSONObjectWithData(data!, options: .MutableLeaves) as! NSDictionary
+            let strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("Body: \(strData)")
+            var json = [:]
+            do{
+                json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableLeaves) as! NSDictionary
+            }catch{
+                print("parameters not in a proper JSON format")
+            }
             //print("account data")
 
             onReturn((json as NSDictionary?)!)
@@ -50,8 +55,8 @@ class api {
             }
             else {
                 if let parseJSON = json as NSDictionary! {
-                    //let success = parseJSON["success"] as? Int
-                    //print("Succes: \(success)")
+                    let success = parseJSON["success"] as? Int
+                    print("Succes: \(success)")
                 }
                 else {
                     let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
