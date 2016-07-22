@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0Z-Mo-taa">
-                                <rect key="frame" x="163" y="136" width="51" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0Z-Mo-taa">
+                                <rect key="frame" x="275" y="136" width="51" height="30"/>
                                 <state key="normal" title="POPUP"/>
                                 <connections>
                                     <action selector="Pop4pmA:" destination="lgi-UL-QVs" eventType="touchUpInside" id="uII-yg-S1o"/>
@@ -59,8 +59,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IW7-zt-MKd">
-                                <rect key="frame" x="135" y="167" width="107" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IW7-zt-MKd">
+                                <rect key="frame" x="247" y="167" width="107" height="30"/>
                                 <state key="normal" title="Create Account"/>
                                 <connections>
                                     <action selector="createAccount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1CR-TT-q2D"/>
@@ -89,15 +89,15 @@
                                 <color key="textColor" red="0.94117653369999998" green="0.15294118230000001" blue="0.11372549830000001" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e79-6i-UlT">
-                                <rect key="frame" x="169" y="408" width="78" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e79-6i-UlT">
+                                <rect key="frame" x="261" y="408" width="78" height="30"/>
                                 <state key="normal" title="Popup Test"/>
                                 <connections>
                                     <segue destination="lgi-UL-QVs" kind="show" id="g9C-i5-3IJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btM-qO-egS">
-                                <rect key="frame" x="166" y="359" width="84" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btM-qO-egS">
+                                <rect key="frame" x="258" y="359" width="84" height="30"/>
                                 <state key="normal" title="Testing Skip"/>
                                 <connections>
                                     <segue destination="Qb6-UQ-Cf7" kind="show" id="BlN-Mr-CRa"/>

@@ -13,8 +13,10 @@ class PopupTestViewController: UIViewController {
     var messageTitle = String()
     var message = String()
     @IBAction func Pop4pmA(sender: AnyObject) {
+        let url:NSURL = NSURL(string: "tel://")!
         let alertA = UIAlertController(title: messageTitle, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alertA.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+        alertA.addAction(UIAlertAction(title: "Call Someone", style: UIAlertActionStyle.Default,handler: { UIAlertAction in UIApplication.sharedApplication().openURL(url)}))
         self.presentViewController(alertA, animated: true, completion: nil)
     }
     
@@ -29,7 +31,7 @@ class PopupTestViewController: UIViewController {
         //Covers school year, summer and exam
         if (((components.month >= 5 && components.month <= 8) && (components.hour >= 13 && components.hour < 21)) || ((components.month == 4 || components.month == 12) && (components.weekday == 1 || components.weekday == 2) && (components.hour >= 4 && components.hour < 20)) || (((components.month >= 9 || components.month <= 12) || (components.month >= 1 || components.month <= 4)) && (((components.weekday >= 2 && components.weekday <= 5) && (components.hour >= 2 && components.hour < 21)) || ((components.weekday == 6 || components.weekday == 7 || components.weekday == 1) && (components.hour >= 3 && components.hour < 21))))) {
             messageTitle = "The watch has ended"
-            message = "We are closed"
+            message = "Call Samal"
         } else if ((components.weekOfYear == 41 && components.weekday == 2) || ((components.weekOfYear == 51 && (components.weekday >= 4 && components.weekday <= 7)) || components.weekOfYear == 52 || components.weekOfYear == 1)) { //Thanksgiving & Winter Holiday
             messageTitle = "We are closed for the holiday!"
             message = "We will resume operations first day back"
