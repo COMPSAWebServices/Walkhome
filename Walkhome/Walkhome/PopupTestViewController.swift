@@ -23,37 +23,20 @@ class PopupTestViewController: UIViewController {
         //Note: This is all in military time based on phone's clock setting
         //Note: I am missing some base cases and I will forsure be redoing this as to improve the complexity and fix some mistakes I made
         let date = NSDate()
-        let dateUnits: NSCalendarUnit = [.Month, .Weekday, .Day, .Hour, .Minute]
+        let dateUnits: NSCalendarUnit = [.Month, .WeekOfYear, .Weekday, .Hour]
         let components = NSCalendar.currentCalendar().components(dateUnits, fromDate: date)
 
-        //Summer (May to August)
-        if (components.month >= 5 && components.month <= 8) {
-            //Hours between 9pm to 1am daily
-            if ((components.hour >= 21 && components.hour <= 24) || components.hour == 1) {
-                messageTitle = "The watch begins"
-                message = "We are open"
-            } else {
-                messageTitle = "The watch has ended"
-                message = "We are closed"
-            }
-        } else { //School Year
-            //Exam Season
-            if (components.month == 4 || components.month == 12) {
-                if (((components.weekday == 6 || components.weekday == 7) && (components.hour >= 20 && components.hour <= 24)) || ((components.weekday == 1 || components.weekday == 7) && (components.hour >= 1 && components.hour <= 4))) { //8pm to 4am
-                    messageTitle = "The watch begins"
-                    message = "We are open"
-                } else {
-                    messageTitle = "The watch has ended"
-                    message = "We are closed"
-                }
-            } else { //Regular Operating Hours
-                if ((components.weekday == 7 || (components.weekday >= 1 && components.weekday <= 3)) && ((components.hour >= 21 && components.hour <= 24) || (components.weekday == 4 && (components.hour >= 0 && components.hour <= 2)))) {
-                    messageTitle = "The watch begins"
-                    message = "We are open"
-                }
-            }
+        //Covers school year, summer and exam
+        if (((components.month >= 5 && components.month <= 8) && (components.hour >= 13 && components.hour < 21)) || ((components.month == 4 || components.month == 12) && (components.weekday == 1 || components.weekday == 2) && (components.hour >= 4 && components.hour < 20)) || (((components.month >= 9 || components.month <= 12) || (components.month >= 1 || components.month <= 4)) && (((components.weekday >= 2 && components.weekday <= 5) && (components.hour >= 2 && components.hour < 21)) || ((components.weekday == 6 || components.weekday == 7 || components.weekday == 1) && (components.hour >= 3 && components.hour < 21))))) {
+            messageTitle = "The watch has ended"
+            message = "We are closed"
+        } else if ((components.weekOfYear == 41 && components.weekday == 2) || ((components.weekOfYear == 51 && (components.weekday >= 4 && components.weekday <= 7)) || components.weekOfYear == 52 || components.weekOfYear == 1)) { //Thanksgiving & Winter Holiday
+            messageTitle = "We are closed for the holiday!"
+            message = "We will resume operations first day back"
+        } else { //Operating hours
+            messageTitle = "We are open"
+            message = "Request a walk!"
         }
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {

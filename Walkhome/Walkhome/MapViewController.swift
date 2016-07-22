@@ -24,8 +24,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.locationManager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
         if self.locationManager.location?.coordinate != nil {
-            let region = MKCoordinateRegionMakeWithDistance(
-                self.locationManager.location!.coordinate, 1200, 1200)
+            let region = MKCoordinateRegionMakeWithDistance(self.locationManager.location!.coordinate, 1200, 1200)
             self.mapView.setRegion(region, animated: true)
         }
         
