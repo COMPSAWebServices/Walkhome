@@ -68,10 +68,10 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6nP-Mj-khB">
-                                <rect key="frame" x="20" y="205" width="560" height="114"/>
+                                <rect key="frame" x="20" y="205" width="560" height="84"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="114" id="GSL-y8-sEZ"/>
+                                    <constraint firstAttribute="height" constant="84" id="GSL-y8-sEZ"/>
                                 </constraints>
                                 <string key="text">Walkhome is a fully anonymous service. This account is for the purpose of sending you notifications or call you on your walk request's progress. Your username is for us to refer to you by something more than a phone number, so feel free to make it something other than your name.</string>
                                 <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -90,13 +90,6 @@
                                 <color key="textColor" red="0.94117653369999998" green="0.15294118230000001" blue="0.11372549830000001" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Fj-eS-aul">
-                                <rect key="frame" x="258" y="328" width="84" height="24"/>
-                                <state key="normal" title="Testing Skip"/>
-                                <connections>
-                                    <segue destination="Qb6-UQ-Cf7" kind="show" id="Wy8-cR-hJw"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e79-6i-UlT">
                                 <rect key="frame" x="261" y="408" width="78" height="30"/>
                                 <constraints>
@@ -105,6 +98,13 @@
                                 <state key="normal" title="Popup Test"/>
                                 <connections>
                                     <segue destination="lgi-UL-QVs" kind="show" id="g9C-i5-3IJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Fj-eS-aul">
+                                <rect key="frame" x="258" y="352" width="84" height="24"/>
+                                <state key="normal" title="Testing Skip"/>
+                                <connections>
+                                    <segue destination="Qb6-UQ-Cf7" kind="show" id="gyr-oq-NHp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -116,13 +116,13 @@
                             <constraint firstItem="FZZ-i3-pQW" firstAttribute="top" secondItem="Ern-IR-XPX" secondAttribute="bottom" constant="8" symbolic="YES" id="6LT-st-K1g"/>
                             <constraint firstItem="6nP-Mj-khB" firstAttribute="leading" secondItem="Ern-IR-XPX" secondAttribute="leading" id="I8r-aw-SGw"/>
                             <constraint firstItem="IW7-zt-MKd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="162" id="IeC-WI-YHp"/>
-                            <constraint firstItem="6nP-Mj-khB" firstAttribute="top" secondItem="IW7-zt-MKd" secondAttribute="bottom" constant="13" id="LOR-lG-Nkx"/>
+                            <constraint firstItem="6nP-Mj-khB" firstAttribute="top" secondItem="IW7-zt-MKd" secondAttribute="bottom" constant="8" id="LOR-lG-Nkx"/>
                             <constraint firstItem="e79-6i-UlT" firstAttribute="centerX" secondItem="6Fj-eS-aul" secondAttribute="centerX" id="PSq-7u-JpQ"/>
                             <constraint firstItem="IW7-zt-MKd" firstAttribute="centerX" secondItem="dBP-ze-sIA" secondAttribute="centerX" id="UJm-cr-lhP"/>
                             <constraint firstItem="IW7-zt-MKd" firstAttribute="top" secondItem="FZZ-i3-pQW" secondAttribute="bottom" constant="37" id="Yga-By-xef"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IW7-zt-MKd" secondAttribute="bottom" constant="466" id="ZBM-xw-t2V"/>
                             <constraint firstItem="dBP-ze-sIA" firstAttribute="leading" secondItem="FZZ-i3-pQW" secondAttribute="leading" id="aMx-ch-Bt5"/>
-                            <constraint firstItem="6Fj-eS-aul" firstAttribute="top" secondItem="6nP-Mj-khB" secondAttribute="bottom" constant="9" id="bwf-Nt-DFJ"/>
+                            <constraint firstItem="6Fj-eS-aul" firstAttribute="top" secondItem="6nP-Mj-khB" secondAttribute="bottom" constant="63" id="bwf-Nt-DFJ"/>
                             <constraint firstItem="6nP-Mj-khB" firstAttribute="leading" secondItem="Uh5-Ku-xbU" secondAttribute="leading" id="cIX-de-5bg"/>
                             <constraint firstItem="IW7-zt-MKd" firstAttribute="top" secondItem="Uh5-Ku-xbU" secondAttribute="bottom" constant="8" symbolic="YES" id="dg5-Vg-Lu8"/>
                             <constraint firstItem="Uh5-Ku-xbU" firstAttribute="top" secondItem="FZZ-i3-pQW" secondAttribute="bottom" constant="8" symbolic="YES" id="iBg-KS-WCc"/>
@@ -132,9 +132,9 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="e79-6i-UlT" secondAttribute="bottom" constant="162" id="pkI-hx-oQo"/>
                             <constraint firstItem="IW7-zt-MKd" firstAttribute="centerX" secondItem="Ern-IR-XPX" secondAttribute="centerX" id="pro-yC-qEs"/>
                             <constraint firstItem="IW7-zt-MKd" firstAttribute="centerX" secondItem="FZZ-i3-pQW" secondAttribute="centerX" id="uCC-BK-PuJ"/>
-                            <constraint firstItem="6Fj-eS-aul" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="40" id="ugc-IF-RP5"/>
+                            <constraint firstItem="6Fj-eS-aul" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="64" id="ugc-IF-RP5"/>
                             <constraint firstItem="IW7-zt-MKd" firstAttribute="centerX" secondItem="Uh5-Ku-xbU" secondAttribute="centerX" id="vPx-He-L9q"/>
-                            <constraint firstItem="e79-6i-UlT" firstAttribute="top" secondItem="6Fj-eS-aul" secondAttribute="bottom" constant="56" id="xjF-j1-nfJ"/>
+                            <constraint firstItem="e79-6i-UlT" firstAttribute="top" secondItem="6Fj-eS-aul" secondAttribute="bottom" constant="32" id="xjF-j1-nfJ"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -169,7 +169,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Gtz-VQ-MLI">
                                 <rect key="frame" x="0.0" y="0.0" width="601" height="601"/>
                                 <subviews>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3B3-3C-djG">
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3B3-3C-djG">
                                         <rect key="frame" x="0.0" y="0.0" width="601" height="601"/>
                                     </mapView>
                                 </subviews>
