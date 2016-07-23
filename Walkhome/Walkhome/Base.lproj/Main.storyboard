@@ -25,17 +25,26 @@
                                     <action selector="Pop4pmA:" destination="lgi-UL-QVs" eventType="touchUpInside" id="uII-yg-S1o"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dR7-QT-1IR">
+                                <rect key="frame" x="392" y="198" width="40" height="30"/>
+                                <state key="normal" title="BACK"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="uCM-HC-WHg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="K0Z-Mo-taa" firstAttribute="centerX" secondItem="FlI-kC-9Gm" secondAttribute="centerX" id="7AI-S6-N7R"/>
+                            <constraint firstItem="K0Z-Mo-taa" firstAttribute="centerX" secondItem="FlI-kC-9Gm" secondAttribute="centerX" constant="1" id="7AI-S6-N7R"/>
                             <constraint firstItem="K0Z-Mo-taa" firstAttribute="top" secondItem="Yuu-Fv-uxL" secondAttribute="bottom" constant="116" id="buK-5b-9fh"/>
+                            <constraint firstItem="dR7-QT-1IR" firstAttribute="top" secondItem="Yuu-Fv-uxL" secondAttribute="bottom" constant="178" id="c6q-0E-0Ex"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dR7-QT-1IR" secondAttribute="trailing" constant="148" id="nJu-E7-1rP"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5g2-9S-EgR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="409" y="-351"/>
+            <point key="canvasLocation" x="409" y="-361"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -168,30 +177,26 @@
                                     </mapView>
                                 </subviews>
                             </stackView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Dmh-Ya-Zcz">
-                                <rect key="frame" x="0.0" y="18" width="600" height="44"/>
+                            <searchBar contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BtO-2i-DYl">
+                                <rect key="frame" x="0.0" y="16" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <scopeButtonTitles>
-                                    <string>Title</string>
-                                    <string>Title</string>
-                                </scopeButtonTitles>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Dmh-Ya-Zcz" firstAttribute="centerX" secondItem="Gtz-VQ-MLI" secondAttribute="centerX" id="2TO-3M-Ks8"/>
-                            <constraint firstItem="Dmh-Ya-Zcz" firstAttribute="leading" secondItem="Gtz-VQ-MLI" secondAttribute="leading" id="IMm-KC-JRy"/>
                             <constraint firstItem="Gtz-VQ-MLI" firstAttribute="leading" secondItem="BvK-WG-Mef" secondAttribute="leading" id="JAf-q5-vrZ"/>
                             <constraint firstItem="Gtz-VQ-MLI" firstAttribute="top" secondItem="BvK-WG-Mef" secondAttribute="top" id="M0O-OY-M6W"/>
+                            <constraint firstItem="BtO-2i-DYl" firstAttribute="centerX" secondItem="Gtz-VQ-MLI" secondAttribute="centerX" id="Se3-9P-Pou"/>
+                            <constraint firstItem="BtO-2i-DYl" firstAttribute="leading" secondItem="Gtz-VQ-MLI" secondAttribute="leading" id="as3-KV-blG"/>
                             <constraint firstItem="Gtz-VQ-MLI" firstAttribute="centerY" secondItem="BvK-WG-Mef" secondAttribute="centerY" id="d5g-6I-04Q"/>
-                            <constraint firstItem="Dmh-Ya-Zcz" firstAttribute="top" secondItem="Gtz-VQ-MLI" secondAttribute="top" constant="18" id="mJ5-bW-Beq"/>
+                            <constraint firstItem="BtO-2i-DYl" firstAttribute="top" secondItem="xds-Tf-UzT" secondAttribute="bottom" id="hXf-ip-64Y"/>
                             <constraint firstItem="Gtz-VQ-MLI" firstAttribute="centerX" secondItem="BvK-WG-Mef" secondAttribute="centerX" id="pK4-nm-kFx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jj8-E7-YyY"/>
                     <connections>
                         <outlet property="mapView" destination="3B3-3C-djG" id="CRC-Lr-0OL"/>
-                        <outlet property="searchController" destination="Dmh-Ya-Zcz" id="wtq-sS-zUf"/>
+                        <outlet property="searchBar" destination="BtO-2i-DYl" id="xn5-x7-5it"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZVY-rv-pRY" userLabel="First Responder" sceneMemberID="firstResponder"/>
