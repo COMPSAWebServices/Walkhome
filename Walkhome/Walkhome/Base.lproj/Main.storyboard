@@ -168,18 +168,30 @@
                                     </mapView>
                                 </subviews>
                             </stackView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Dmh-Ya-Zcz">
+                                <rect key="frame" x="0.0" y="18" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Dmh-Ya-Zcz" firstAttribute="centerX" secondItem="Gtz-VQ-MLI" secondAttribute="centerX" id="2TO-3M-Ks8"/>
+                            <constraint firstItem="Dmh-Ya-Zcz" firstAttribute="leading" secondItem="Gtz-VQ-MLI" secondAttribute="leading" id="IMm-KC-JRy"/>
                             <constraint firstItem="Gtz-VQ-MLI" firstAttribute="leading" secondItem="BvK-WG-Mef" secondAttribute="leading" id="JAf-q5-vrZ"/>
                             <constraint firstItem="Gtz-VQ-MLI" firstAttribute="top" secondItem="BvK-WG-Mef" secondAttribute="top" id="M0O-OY-M6W"/>
                             <constraint firstItem="Gtz-VQ-MLI" firstAttribute="centerY" secondItem="BvK-WG-Mef" secondAttribute="centerY" id="d5g-6I-04Q"/>
+                            <constraint firstItem="Dmh-Ya-Zcz" firstAttribute="top" secondItem="Gtz-VQ-MLI" secondAttribute="top" constant="18" id="mJ5-bW-Beq"/>
                             <constraint firstItem="Gtz-VQ-MLI" firstAttribute="centerX" secondItem="BvK-WG-Mef" secondAttribute="centerX" id="pK4-nm-kFx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jj8-E7-YyY"/>
                     <connections>
                         <outlet property="mapView" destination="3B3-3C-djG" id="CRC-Lr-0OL"/>
+                        <outlet property="searchController" destination="Dmh-Ya-Zcz" id="wtq-sS-zUf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZVY-rv-pRY" userLabel="First Responder" sceneMemberID="firstResponder"/>

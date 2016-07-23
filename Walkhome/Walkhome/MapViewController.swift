@@ -12,6 +12,7 @@ import CoreLocation
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var searchController: UISearchBar!
     let locationManager = CLLocationManager() //This will give us the user's current location
 
     override func viewDidLoad() {
@@ -62,6 +63,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             blPin.imageName = "BlueLight"
             mapView.addAnnotation(blPin)
         }
+        
+        searchController.barTintColor = UIColor.clearColor()
+        searchController.backgroundImage = UIImage()
+        searchController.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
     }
     
     //For custom pins
