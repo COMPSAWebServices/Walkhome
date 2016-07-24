@@ -13,6 +13,7 @@ import CoreLocation
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var destinationBar: UISearchBar!
     
     var sh = Bool()
     @IBAction func shBL(sender: AnyObject) {
@@ -27,7 +28,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
         currentLocation()
         let whPin = CustomAnnotation()
-        whPin.coordinate = CLLocationCoordinate2DMake(44.228454, -76.494484)
+        whPin.coordinate = CLLocationCoordinate2DMake(44.22838027067406, -76.49507761001587)
         whPin.title = "WalkHome HQ"
         whPin.imageName = "WalkHomeHQ"
         
@@ -40,6 +41,42 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.addAnnotation(csPin)
         
         border()
+        let startCoo = CLLocationCoordinate2D(latitude: 44.22838027067406, longitude: -76.49507761001587)
+        let startPin = CustomAnnotation()
+        startPin.coordinate = startCoo
+        startPin.title = "Start"
+        startPin.imageName = "Start"
+        let destCoo = CLLocationCoordinate2D(latitude: 44.230409, longitude: -76.492887)
+        let finishPin = CustomAnnotation()
+        finishPin.coordinate = destCoo
+        finishPin.title = "Finish"
+        finishPin.imageName = "MapMarker"
+        getDirection(startCoo, finish: destCoo)
+        mapView.addAnnotations([startPin, finishPin])
+        //reverseAddress(destCoo, something: destinationBar)
+    }
+    
+    func getDirection(start: CLLocationCoordinate2D, finish: CLLocationCoordinate2D) {
+        let startPM = MKPlacemark(coordinate: start, addressDictionary: nil)
+        let finishPM = MKPlacemark(coordinate: finish, addressDictionary: nil)
+        let startMI = MKMapItem(placemark: startPM)
+        let finishMI = MKMapItem(placemark: finishPM)
+        let dr = MKDirectionsRequest()
+        dr.source = startMI //Starting Point
+        dr.destination = finishMI //Destination Point
+        dr.transportType = .Walking
+        let directions = MKDirections(request: dr) //This will calculate us a route
+        directions.calculateDirectionsWithCompletionHandler {(response, error) -> Void in
+            guard let response = response
+                else {
+                    if let error = error {
+                        print ("Error:", error)
+                    }
+                return
+            }
+            let route = response.routes[0]
+            self.mapView.addOverlay((route.polyline), level: MKOverlayLevel.AboveRoads)
+        }
     }
     
     func currentLocation() {
@@ -50,10 +87,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
+        self.mapView.showsBuildings = false //Having it increases load a lot
         
         if self.locationManager.location?.coordinate != nil {
             let region = MKCoordinateRegionMakeWithDistance(self.locationManager.location!.coordinate, 1200, 1200)
-            reverseAddress(self.locationManager.location!.coordinate)
+            //reverseAddress(self.locationManager.location!.coordinate, something: searchBar)
             self.mapView.setRegion(region, animated: true)
         }
     }
@@ -82,7 +120,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         return customV
     }
     
-    func reverseAddress(location: CLLocationCoordinate2D) {
+    func reverseAddress(location: CLLocationCoordinate2D, something: UISearchBar) {
         let alocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
         CLGeocoder().reverseGeocodeLocation(alocation, completionHandler: {(placemarks, error) -> Void in
             if (error != nil) {
@@ -94,7 +132,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 let place = placemarks![0]
                 print((place.addressDictionary?["Street"])!!)
                 //return (String(place.addressDictionary?["Street"]))
-                self.searchBar.text = (place.addressDictionary?["Street"])!! as? String
+                something.text = (place.addressDictionary?["Street"])!! as? String
             } else {
                 print("We encountered a problem")
                 //return
@@ -118,15 +156,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let blLong = [-76.507071, -76.506446, -76.509949, -76.513372, -76.513421, -76.514355, -76.514087, -76.516331, -76.516608, -76.516004, -76.515209, -76.516415, -76.497494, -76.497933, -76.497471,  -76.497948, -76.498151, -76.497865, -76.497740, -76.498158, -76.498021, -76.496618, -76.495883, 76.495386, -76.494686, -76.493141, -76.494458, -76.494284, -76.494703, -76.494104, -76.493692, -76.494316, -76.492179, -76.491696, -76.491683, -76.492972, -76.493336, -76.492542, -76.492495, -76.493992, -76.494643,  -76.495372, -76.494231, -76.494045, -76.494819, -76.494505, -76.495151, -76.494424, -76.493998, -76.495275, -76.492918, -76.490860, -76.491681, -76.491152, -76.490990, -76.491794, -76.491418, -76.491611, -76.491114, -76.493697, -76.495562]
         let size = blLat.count
         
+        //Need to figure out a way to remove this annotation as it is part of Custom Annotation & not MKAnnotation
         for i in 0..<size {
             let blPin = CustomAnnotation()
             blPin.coordinate = CLLocationCoordinate2DMake(blLat[i], blLong[i])
             blPin.title = "Blue Light"
             blPin.imageName = "BlueLight"
+            print ("testing:", sh)
             if (sh == true) {
                 mapView.addAnnotation(blPin)
-            } else {
-                mapView.removeAnnotation(blPin)
             }
         }
     }

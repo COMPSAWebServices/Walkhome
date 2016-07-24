@@ -192,14 +192,21 @@
                                     <action selector="shBL:" destination="Qb6-UQ-Cf7" eventType="touchUpInside" id="gQB-2w-b3q"/>
                                 </connections>
                             </button>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="tRu-RO-sar">
+                                <rect key="frame" x="16" y="132" width="568" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="AvZ-yy-xTP" firstAttribute="top" secondItem="BtO-2i-DYl" secondAttribute="bottom" constant="14" id="47O-Tj-8iR"/>
+                            <constraint firstItem="tRu-RO-sar" firstAttribute="leading" secondItem="BvK-WG-Mef" secondAttribute="leadingMargin" constant="-4" id="CN7-sQ-vkb"/>
+                            <constraint firstItem="tRu-RO-sar" firstAttribute="top" secondItem="AvZ-yy-xTP" secondAttribute="bottom" constant="24" id="Ha7-xB-7Eg"/>
                             <constraint firstItem="Gtz-VQ-MLI" firstAttribute="leading" secondItem="BvK-WG-Mef" secondAttribute="leading" id="JAf-q5-vrZ"/>
                             <constraint firstItem="AvZ-yy-xTP" firstAttribute="centerX" secondItem="BtO-2i-DYl" secondAttribute="centerX" constant="1" id="Lft-sZ-meU"/>
                             <constraint firstItem="Gtz-VQ-MLI" firstAttribute="top" secondItem="BvK-WG-Mef" secondAttribute="top" id="M0O-OY-M6W"/>
                             <constraint firstItem="BtO-2i-DYl" firstAttribute="centerX" secondItem="Gtz-VQ-MLI" secondAttribute="centerX" id="Se3-9P-Pou"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tRu-RO-sar" secondAttribute="trailing" constant="-4" id="VNL-7P-5Cf"/>
                             <constraint firstItem="BtO-2i-DYl" firstAttribute="leading" secondItem="Gtz-VQ-MLI" secondAttribute="leading" constant="16" id="as3-KV-blG"/>
                             <constraint firstItem="Gtz-VQ-MLI" firstAttribute="centerY" secondItem="BvK-WG-Mef" secondAttribute="centerY" id="d5g-6I-04Q"/>
                             <constraint firstItem="BtO-2i-DYl" firstAttribute="top" secondItem="xds-Tf-UzT" secondAttribute="bottom" id="hXf-ip-64Y"/>
@@ -208,11 +215,21 @@
                     </view>
                     <navigationItem key="navigationItem" id="jj8-E7-YyY"/>
                     <connections>
+                        <outlet property="destinationBar" destination="tRu-RO-sar" id="tKc-5n-cOf"/>
                         <outlet property="mapView" destination="3B3-3C-djG" id="CRC-Lr-0OL"/>
                         <outlet property="searchBar" destination="BtO-2i-DYl" id="xn5-x7-5it"/>
+                        <outlet property="searchDisplayController" destination="HOF-ga-ECX" id="RhA-fz-LXI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZVY-rv-pRY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="HOF-ga-ECX">
+                    <connections>
+                        <outlet property="delegate" destination="Qb6-UQ-Cf7" id="dVv-yX-crW"/>
+                        <outlet property="searchContentsController" destination="Qb6-UQ-Cf7" id="4Ph-jS-gC8"/>
+                        <outlet property="searchResultsDataSource" destination="Qb6-UQ-Cf7" id="HkU-TT-nkg"/>
+                        <outlet property="searchResultsDelegate" destination="Qb6-UQ-Cf7" id="TFN-vs-wCQ"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1075" y="349"/>
         </scene>
