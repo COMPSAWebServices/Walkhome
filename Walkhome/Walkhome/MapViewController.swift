@@ -148,7 +148,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let polyline = MKPolyline(coordinates: &polyLineCord, count: polyLinePoints.count)
         self.mapView.addOverlay(polyline)
     }
-    
+    //array to store all blue light objects
+    var blueLightsArray: NSMutableArray = []
     func blueLights(sh: Bool) {
         // Isabel Centre Blue Lights x2, West Campus x10, Harkness x2, Goodes x7, Stauffer x2, JDUC x2, Kin x1, ARC x6, Dupuis x1, WLH x2, Miller x1, Bruce Wing x1, Katheen Ryan x2, Nicol x1, Gordon x1, Douglas x1, Fleming x2, Grant x1, Kingston x1, Nixon Underground x4, Founders Row x1, Earl Hall x1, BioSci x1, Cataraqui x1, Cancel Research Institute x1, Wally x2, KGH x1, MCLaughlin x1
         // To do: Add the blue lights on campus, and make the option to hide the blue lights
@@ -163,9 +164,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             blPin.title = "Blue Light"
             blPin.imageName = "BlueLight"
             print ("testing:", sh)
+            blueLightsArray.addObject(blPin)
             if (sh == true) {
                 mapView.addAnnotation(blPin)
+            }else{
+                mapView.removeAnnotation(blueLightsArray[i] as! MKAnnotation)
             }
+        }
+        if (sh == false) {
+            blueLightsArray = []
         }
     }
     
