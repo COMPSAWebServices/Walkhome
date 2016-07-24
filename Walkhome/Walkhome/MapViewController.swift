@@ -14,27 +14,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    var sh = Bool()
+    @IBAction func shBL(sender: AnyObject) {
+        sh = !sh
+        blueLights(sh)
+    }
     let locationManager = CLLocationManager() //This will give us the user's current location
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.searchBar.barTintColor = UIColor.clearColor()
-        self.searchBar.backgroundImage = UIImage()
-        self.searchBar.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
-        self.title = "Map"
-        mapView.delegate = self
-        self.locationManager.delegate = self
-        self.locationManager.requestWhenInUseAuthorization()
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        self.locationManager.startUpdatingLocation()
-        self.mapView.showsUserLocation = true
+        self.searchBar.barTintColor = UIColor.whiteColor()
 
-        if self.locationManager.location?.coordinate != nil {
-            let region = MKCoordinateRegionMakeWithDistance(self.locationManager.location!.coordinate, 1200, 1200)
-            reverseAddress(self.locationManager.location!.coordinate)
-            self.mapView.setRegion(region, animated: true)
-        }
-        
+        currentLocation()
         let whPin = CustomAnnotation()
         whPin.coordinate = CLLocationCoordinate2DMake(44.228454, -76.494484)
         whPin.title = "WalkHome HQ"
@@ -49,7 +40,22 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.addAnnotation(csPin)
         
         border()
-        blueLights()
+    }
+    
+    func currentLocation() {
+        self.title = "Map"
+        mapView.delegate = self
+        self.locationManager.delegate = self
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.startUpdatingLocation()
+        self.mapView.showsUserLocation = true
+        
+        if self.locationManager.location?.coordinate != nil {
+            let region = MKCoordinateRegionMakeWithDistance(self.locationManager.location!.coordinate, 1200, 1200)
+            reverseAddress(self.locationManager.location!.coordinate)
+            self.mapView.setRegion(region, animated: true)
+        }
     }
     
     //For custom pins
@@ -91,7 +97,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 self.searchBar.text = (place.addressDictionary?["Street"])!! as? String
             } else {
                 print("We encountered a problem")
-                return
+                //return
             }
         })
     }
@@ -105,7 +111,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.mapView.addOverlay(polyline)
     }
     
-    func blueLights() {
+    func blueLights(sh: Bool) {
         // Isabel Centre Blue Lights x2, West Campus x10, Harkness x2, Goodes x7, Stauffer x2, JDUC x2, Kin x1, ARC x6, Dupuis x1, WLH x2, Miller x1, Bruce Wing x1, Katheen Ryan x2, Nicol x1, Gordon x1, Douglas x1, Fleming x2, Grant x1, Kingston x1, Nixon Underground x4, Founders Row x1, Earl Hall x1, BioSci x1, Cataraqui x1, Cancel Research Institute x1, Wally x2, KGH x1, MCLaughlin x1
         // To do: Add the blue lights on campus, and make the option to hide the blue lights
         let blLat = [44.220355, 44.221264, 44.224576, 44.223813, 44.224725, 44.225449, 44.227653, 44.226679, 44.225250, 44.224528, 44.223522, 44.229975, 44.230088, 44.230081, 44.228578, 44.228498, 44.228491, 44.228047, 44.227789, 44.227700, 44.227732, 44.228022, 44.229008, 44.228843, 44.228082, 44.228845, 44.228902, 44.228995, 44.229276, 44.229394, 44.229377, 44.229693, 44.228681, 44.228223, 44.227765, 44.227637, 44.226912, 44.226770, 44.226356, 44.227219, 44.226975, 44.227729, 44.226595, 44.226315, 44.226039, 44.225501, 44.225376, 44.224644, 44.224671, 44.224452, 44.225414, 44.227114, 44.226312, 44.225717, 44.224966, 44.224838, 44.224116, 44.223397, 44.222783, 44.224435, 44.223787]
@@ -117,7 +123,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             blPin.coordinate = CLLocationCoordinate2DMake(blLat[i], blLong[i])
             blPin.title = "Blue Light"
             blPin.imageName = "BlueLight"
-            mapView.addAnnotation(blPin)
+            if (sh == true) {
+                mapView.addAnnotation(blPin)
+            } else {
+                mapView.removeAnnotation(blPin)
+            }
         }
     }
     
