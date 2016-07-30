@@ -1,8 +1,8 @@
 //
-//  MapViewController.swift
+//  NewMapViewController.swift
 //  Walkhome
 //
-//  Created by Raymond Chung on 2016-07-16.
+//  Created by Raymond Chung on 2016-07-30.
 //  Copyright © 2016 COMPSA Web Services. All rights reserved.
 //
 
@@ -10,22 +10,34 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate {
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var destinationBar: UISearchBar!
+    var searchController: UISearchController! //To call the search bar
+    var searchRequest: MKLocalSearchRequest! //So it would be within Kingston based on user's location
+    var search: MKLocalSearch! //searchRequest will pass info to search
+    var searchResponse: MKLocalSearchResponse! //Store the response of request
+    var destinationPin: CustomAnnotation!
+    var destinationView: MKAnnotationView!
+    var error: NSError!
+    
     
     var sh = Bool()
     @IBAction func shBL(sender: AnyObject) {
         sh = !sh
         blueLights(sh)
     }
+    
+    @IBAction func searchButton(sender: AnyObject) {
+        searchController = UISearchController(searchResultsController: nil)
+        self.searchController.searchBar.delegate = self
+        presentViewController(searchController, animated: true, completion: nil)
+        searchController.hidesNavigationBarDuringPresentation = false //Hides nav
+    }
+    
     let locationManager = CLLocationManager() //This will give us the user's current location
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.searchBar.barTintColor = UIColor.whiteColor()
-
         currentLocation()
         let whPin = CustomAnnotation()
         whPin.coordinate = CLLocationCoordinate2DMake(44.22838027067406, -76.49507761001587)
@@ -36,9 +48,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         csPin.coordinate = CLLocationCoordinate2DMake(44.225315, -76.498425)
         csPin.title = "Campus Security"
         csPin.imageName = "CampusSecurity"
-
+        
         mapView.addAnnotations([whPin, csPin])
         border()
+        /*
         let startCoo = CLLocationCoordinate2D(latitude: 44.22838027067406, longitude: -76.49507761001587)
         let startPin = CustomAnnotation()
         startPin.coordinate = startCoo
@@ -51,7 +64,32 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         finishPin.imageName = "MapMarker"
         getDirection(startCoo, finish: destCoo)
         mapView.addAnnotations([startPin, finishPin])
-        reverseAddress(destCoo, something: destinationBar)
+        */
+        //reverseAddress(destCoo, something: destinationBar)
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        dismissViewControllerAnimated(true, completion: nil)
+        
+        searchRequest = MKLocalSearchRequest()
+        searchRequest.naturalLanguageQuery = searchBar.text
+        search = MKLocalSearch(request: searchRequest)
+        search.startWithCompletionHandler {(searchResponse, error) -> Void in
+            if (searchResponse == nil) {
+                let alertController = UIAlertController(title: "Place Not Found", message: "Please enter another location", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+                return
+            }
+            self.destinationPin = CustomAnnotation()
+            self.destinationPin.title = "Starting Point"
+            self.destinationPin.imageName = "Start"
+            self.destinationPin.coordinate = CLLocationCoordinate2D(latitude: searchResponse!.boundingRegion.center.latitude, longitude: searchResponse!.boundingRegion.center.longitude)
+            self.destinationView = MKPinAnnotationView(annotation: self.destinationPin, reuseIdentifier: nil)
+            self.mapView.centerCoordinate = self.destinationPin.coordinate
+            self.mapView.addAnnotation(self.destinationView.annotation!)
+        }
     }
     
     func getDirection(start: CLLocationCoordinate2D, finish: CLLocationCoordinate2D) {
@@ -70,7 +108,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                     if let error = error {
                         print ("Error:", error)
                     }
-                return
+                    return
             }
             let route = response.routes[0]
             let startPin = CustomAnnotation()
@@ -92,7 +130,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         if self.locationManager.location?.coordinate != nil {
             let region = MKCoordinateRegionMakeWithDistance(self.locationManager.location!.coordinate, 1200, 1200)
-            reverseAddress(self.locationManager.location!.coordinate, something: searchBar)
+            //reverseAddress(self.locationManager.location!.coordinate, something: searchBar)
             self.mapView.setRegion(region, animated: true)
         }
     }

@@ -19,6 +19,8 @@
 		A0C3F6F71D38972A0016004E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0C3F6F51D38972A0016004E /* LaunchScreen.storyboard */; };
 		EF0F4DF41D3A89D8002A250E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0F4DF31D3A89D8002A250E /* MapViewController.swift */; };
 		EF80A6C51D3AD7130060CF2C /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF80A6C41D3AD7130060CF2C /* CustomAnnotation.swift */; };
+		EF9F3F3F1D4D4510000B16A1 /* NewMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9F3F3E1D4D4510000B16A1 /* NewMapViewController.swift */; };
+		EF9F3F411D4D4FE8000B16A1 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9F3F401D4D4FE8000B16A1 /* RoundButton.swift */; };
 		EFF26ED01D400C8B00872021 /* PopupTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF26ECF1D400C8B00872021 /* PopupTestViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		A0C3F6F81D38972A0016004E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF0F4DF31D3A89D8002A250E /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		EF80A6C41D3AD7130060CF2C /* CustomAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
+		EF9F3F3E1D4D4510000B16A1 /* NewMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMapViewController.swift; sourceTree = "<group>"; };
+		EF9F3F401D4D4FE8000B16A1 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		EFF26ECF1D400C8B00872021 /* PopupTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupTestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +88,8 @@
 				A0AFE8F31D3CF4B700DDBB4B /* StatusViewController.swift */,
 				A0AFE8F51D3CF84C00DDBB4B /* FeedbackViewController.swift */,
 				EFF26ECF1D400C8B00872021 /* PopupTestViewController.swift */,
+				EF9F3F3E1D4D4510000B16A1 /* NewMapViewController.swift */,
+				EF9F3F401D4D4FE8000B16A1 /* RoundButton.swift */,
 			);
 			path = Walkhome;
 			sourceTree = "<group>";
@@ -161,10 +167,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF9F3F3F1D4D4510000B16A1 /* NewMapViewController.swift in Sources */,
 				A0AFE8F41D3CF4B700DDBB4B /* StatusViewController.swift in Sources */,
 				A0AFE8F21D3C58CF00DDBB4B /* LoginViewController.swift in Sources */,
 				EF0F4DF41D3A89D8002A250E /* MapViewController.swift in Sources */,
 				EF80A6C51D3AD7130060CF2C /* CustomAnnotation.swift in Sources */,
+				EF9F3F411D4D4FE8000B16A1 /* RoundButton.swift in Sources */,
 				A0B5C4021D3BDF21002649B7 /* WHAPI.swift in Sources */,
 				A02D29CE1D3AA31000710F54 /* plistModule.swift in Sources */,
 				EFF26ED01D400C8B00872021 /* PopupTestViewController.swift in Sources */,
