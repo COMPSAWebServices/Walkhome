@@ -12,13 +12,14 @@ import CoreLocation
 
 class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate {
     @IBOutlet weak var mapView: MKMapView!
+    //Gotta clean this part up
     var searchController: UISearchController! //To call the search bar
     var searchRequest: MKLocalSearchRequest! //So it would be within Kingston based on user's location
     var search: MKLocalSearch! //searchRequest will pass info to search
     var searchResponse: MKLocalSearchResponse! //Store the response of request
     var destinationPin: CustomAnnotation!
-    var destinationView: MKAnnotationView!
     var error: NSError!
+    var destPin: CLLocationCoordinate2D! //End of the road
     
     
     var sh = Bool()
@@ -35,6 +36,7 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     }
     
     let locationManager = CLLocationManager() //This will give us the user's current location
+    var currentSpot: CLLocationCoordinate2D! //Current location
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,13 +59,15 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         startPin.coordinate = startCoo
         startPin.title = "Start"
         startPin.imageName = "Start"
-        let destCoo = CLLocationCoordinate2D(latitude: 44.230409, longitude: -76.492887)
+        //let destCoo = CLLocationCoordinate2D(latitude: 44.230409, longitude: -76.492887)
         let finishPin = CustomAnnotation()
-        finishPin.coordinate = destCoo
         finishPin.title = "Finish"
         finishPin.imageName = "MapMarker"
-        getDirection(startCoo, finish: destCoo)
-        mapView.addAnnotations([startPin, finishPin])
+        if (destPin != nil) {
+            finishPin.coordinate = destPin
+            getDirection(startCoo, finish: destPin)
+            mapView.addAnnotations([startPin, finishPin])
+        }
         */
         //reverseAddress(destCoo, something: destinationBar)
     }
@@ -86,9 +90,23 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             self.destinationPin.title = "Starting Point"
             self.destinationPin.imageName = "Start"
             self.destinationPin.coordinate = CLLocationCoordinate2D(latitude: searchResponse!.boundingRegion.center.latitude, longitude: searchResponse!.boundingRegion.center.longitude)
-            self.destinationView = MKPinAnnotationView(annotation: self.destinationPin, reuseIdentifier: nil)
-            self.mapView.centerCoordinate = self.destinationPin.coordinate
-            self.mapView.addAnnotation(self.destinationView.annotation!)
+            self.destPin = self.destinationPin.coordinate
+            let startCoo = self.currentSpot
+            let startPin = CustomAnnotation()
+            startPin.coordinate = startCoo
+            startPin.title = "Start"
+            startPin.imageName = "Start"
+            let finishPin = CustomAnnotation()
+            finishPin.title = "Finish"
+            finishPin.imageName = "MapMarker"
+            if (self.destPin != nil) {
+                finishPin.coordinate = self.destPin
+                self.getDirection(startCoo, finish: self.destPin)
+                self.mapView.addAnnotations([startPin, finishPin])
+            }
+
+            //self.mapView.centerCoordinate = self.destinationPin.coordinate
+            //self.mapView.addAnnotation(self.destinationPin)
         }
     }
     
@@ -129,6 +147,7 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         self.mapView.rotateEnabled = false //Disabled annoying rotation
         
         if self.locationManager.location?.coordinate != nil {
+            currentSpot = self.locationManager.location!.coordinate
             let region = MKCoordinateRegionMakeWithDistance(self.locationManager.location!.coordinate, 1200, 1200)
             //reverseAddress(self.locationManager.location!.coordinate, something: searchBar)
             self.mapView.setRegion(region, animated: true)
