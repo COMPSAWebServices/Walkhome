@@ -21,26 +21,30 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     var error: NSError!
     var destPin: CLLocationCoordinate2D! //End of the road
     
-    
     var sh = Bool()
     @IBAction func shBL(sender: AnyObject) {
         sh = !sh
         blueLights(sh)
     }
     
+    /*
     @IBAction func searchButton(sender: AnyObject) {
         searchController = UISearchController(searchResultsController: nil)
         self.searchController.searchBar.delegate = self
         presentViewController(searchController, animated: true, completion: nil)
         searchController.hidesNavigationBarDuringPresentation = false //Hides nav
-    }
+    }*/
     
     let locationManager = CLLocationManager() //This will give us the user's current location
     var currentSpot: CLLocationCoordinate2D! //Current location
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
+        self.navigationController!.navigationBar.translucent = true
         currentLocation()
+        createSearch()
         let whPin = CustomAnnotation()
         whPin.coordinate = CLLocationCoordinate2DMake(44.22838027067406, -76.49507761001587)
         whPin.title = "WalkHome HQ"
@@ -53,23 +57,17 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         
         mapView.addAnnotations([whPin, csPin])
         border()
-        /*
-        let startCoo = CLLocationCoordinate2D(latitude: 44.22838027067406, longitude: -76.49507761001587)
-        let startPin = CustomAnnotation()
-        startPin.coordinate = startCoo
-        startPin.title = "Start"
-        startPin.imageName = "Start"
-        //let destCoo = CLLocationCoordinate2D(latitude: 44.230409, longitude: -76.492887)
-        let finishPin = CustomAnnotation()
-        finishPin.title = "Finish"
-        finishPin.imageName = "MapMarker"
-        if (destPin != nil) {
-            finishPin.coordinate = destPin
-            getDirection(startCoo, finish: destPin)
-            mapView.addAnnotations([startPin, finishPin])
-        }
-        */
-        //reverseAddress(destCoo, something: destinationBar)
+    }
+    
+    func createSearch() {
+        searchController = UISearchController(searchResultsController: nil)
+        self.searchController.searchBar.delegate = self
+        self.navigationItem.titleView = self.searchController.searchBar
+        self.searchController.searchBar.backgroundColor = UIColor.whiteColor()
+        self.searchController.searchBar.backgroundImage = UIImage()
+        searchController.hidesNavigationBarDuringPresentation = false //Hides nav
+        searchController.searchBar.barTintColor = UIColor.clearColor()
+        self.searchController.searchBar.translucent = true
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -136,7 +134,6 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     }
     
     func currentLocation() {
-        self.title = "Map"
         mapView.delegate = self
         self.locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
