@@ -10,16 +10,18 @@ import UIKit
 import MapKit
 import CoreLocation
 
+protocol HandleMapSearch { //Whatever uses this protocol must use the function addPin
+    func addPin(placemark: MKPlacemark)
+}
+
 class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate {
     @IBOutlet weak var mapView: MKMapView!
     //Gotta clean this part up
+    let locationManager = CLLocationManager() //This will give us the user's current location
+    var currentSpot: CLLocationCoordinate2D! //Current location
     var searchController: UISearchController! //To call the search bar
-    var searchRequest: MKLocalSearchRequest! //So it would be within Kingston based on user's location
-    var search: MKLocalSearch! //searchRequest will pass info to search
-    var searchResponse: MKLocalSearchResponse! //Store the response of request
-    var destinationPin: CustomAnnotation!
-    var error: NSError!
     var destPin: CLLocationCoordinate2D! //End of the road
+    var endPin: MKPlacemark? = nil
     
     var sh = Bool()
     @IBAction func shBL(sender: AnyObject) {
@@ -27,23 +29,13 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         blueLights(sh)
     }
     
-    /*
-    @IBAction func searchButton(sender: AnyObject) {
-        searchController = UISearchController(searchResultsController: nil)
-        self.searchController.searchBar.delegate = self
-        presentViewController(searchController, animated: true, completion: nil)
-        searchController.hidesNavigationBarDuringPresentation = false //Hides nav
-    }*/
-    
-    let locationManager = CLLocationManager() //This will give us the user's current location
-    var currentSpot: CLLocationCoordinate2D! //Current location
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         self.navigationController!.navigationBar.shadowImage = UIImage()
         self.navigationController!.navigationBar.translucent = true
         currentLocation()
+        
         createSearch()
         let whPin = CustomAnnotation()
         whPin.coordinate = CLLocationCoordinate2DMake(44.22838027067406, -76.49507761001587)
@@ -60,52 +52,22 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     }
     
     func createSearch() {
-        searchController = UISearchController(searchResultsController: nil)
-        self.searchController.searchBar.delegate = self
-        self.navigationItem.titleView = self.searchController.searchBar
+        let searchTable = storyboard!.instantiateViewControllerWithIdentifier("SearchTable") as! SearchTable
+        self.searchController = UISearchController(searchResultsController: searchTable)
+        self.searchController?.searchResultsUpdater = searchTable
+        let searchBar = searchController!.searchBar
+        searchBar.sizeToFit() //Resize for all screen size
+        self.navigationItem.titleView =  self.searchController.searchBar
+        searchController.hidesNavigationBarDuringPresentation = false //Hides nav
+        searchController.dimsBackgroundDuringPresentation = true
+        self.searchController.searchBar.translucent = true
+        definesPresentationContext = true //This will put the nav and search above the dim overlay
+        self.searchController.searchBar.barTintColor = UIColor.clearColor()
         self.searchController.searchBar.backgroundColor = UIColor.whiteColor()
         self.searchController.searchBar.backgroundImage = UIImage()
-        searchController.hidesNavigationBarDuringPresentation = false //Hides nav
-        searchController.searchBar.barTintColor = UIColor.clearColor()
-        self.searchController.searchBar.translucent = true
-    }
-    
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        dismissViewControllerAnimated(true, completion: nil)
+        searchTable.mapView = mapView
+        searchTable.handleMapSearchDelegate = self
         
-        searchRequest = MKLocalSearchRequest()
-        searchRequest.naturalLanguageQuery = searchBar.text
-        search = MKLocalSearch(request: searchRequest)
-        search.startWithCompletionHandler {(searchResponse, error) -> Void in
-            if (searchResponse == nil) {
-                let alertController = UIAlertController(title: "Place Not Found", message: "Please enter another location", preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alertController, animated: true, completion: nil)
-                return
-            }
-            self.destinationPin = CustomAnnotation()
-            self.destinationPin.title = "Starting Point"
-            self.destinationPin.imageName = "Start"
-            self.destinationPin.coordinate = CLLocationCoordinate2D(latitude: searchResponse!.boundingRegion.center.latitude, longitude: searchResponse!.boundingRegion.center.longitude)
-            self.destPin = self.destinationPin.coordinate
-            let startCoo = self.currentSpot
-            let startPin = CustomAnnotation()
-            startPin.coordinate = startCoo
-            startPin.title = "Start"
-            startPin.imageName = "Start"
-            let finishPin = CustomAnnotation()
-            finishPin.title = "Finish"
-            finishPin.imageName = "MapMarker"
-            if (self.destPin != nil) {
-                finishPin.coordinate = self.destPin
-                self.getDirection(startCoo, finish: self.destPin)
-                self.mapView.addAnnotations([startPin, finishPin])
-            }
-
-            //self.mapView.centerCoordinate = self.destinationPin.coordinate
-            //self.mapView.addAnnotation(self.destinationPin)
-        }
     }
     
     func getDirection(start: CLLocationCoordinate2D, finish: CLLocationCoordinate2D) {
@@ -116,7 +78,7 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         let dr = MKDirectionsRequest()
         dr.source = startMI //Starting Point
         dr.destination = finishMI //Destination Point
-        dr.transportType = .Walking
+        dr.transportType = .Automobile
         let directions = MKDirections(request: dr) //This will calculate us a route
         directions.calculateDirectionsWithCompletionHandler {(response, error) -> Void in
             guard let response = response
@@ -140,7 +102,7 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
-        self.mapView.showsBuildings = false //Having it increases load a lot
+        self.mapView.showsBuildings = true //Having it increases load a lot
         self.mapView.rotateEnabled = false //Disabled annoying rotation
         
         if self.locationManager.location?.coordinate != nil {
@@ -246,5 +208,33 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+}
+
+extension SearchTable {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return matches.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell")!
+        let selected = matches[indexPath.row].placemark //Info about the place
+        cell.textLabel?.text = selected.name //Name
+        cell.detailTextLabel?.text = parseAddress(selected) //Subtitles
+        return cell
+    }
+}
+
+extension NewMapViewController: HandleMapSearch { //Uses the protocol to drop pin after search
+    func addPin(placemark: MKPlacemark) {
+        endPin = placemark
+        //mapView.removeAnnotations(mapView.annotations)
+        let pin = CustomAnnotation()
+        pin.coordinate = placemark.coordinate
+        pin.title = placemark.name
+        pin.imageName = "MapMarker"
+        mapView.addAnnotation(pin)
+        let region = MKCoordinateRegionMakeWithDistance(placemark.coordinate, 600, 600)
+        mapView.setRegion(region, animated: true)
     }
 }
