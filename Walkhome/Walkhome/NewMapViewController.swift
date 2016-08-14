@@ -21,7 +21,7 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     var currentSpot: CLLocationCoordinate2D! //Current location
     var searchController: UISearchController! //To call the search bar
     var destPin: CLLocationCoordinate2D! //End of the road
-    var endPin: MKPlacemark? = nil
+    var endPin: MKPlacemark?
     
     var sh = Bool()
     @IBAction func shBL(sender: AnyObject) {
@@ -35,8 +35,12 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         self.navigationController!.navigationBar.shadowImage = UIImage()
         self.navigationController!.navigationBar.translucent = true
         currentLocation()
-        
+        safetyPin()
         createSearch()
+        border()
+    }
+    
+    func safetyPin() {
         let whPin = CustomAnnotation()
         whPin.coordinate = CLLocationCoordinate2DMake(44.22838027067406, -76.49507761001587)
         whPin.title = "WalkHome HQ"
@@ -48,7 +52,6 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         csPin.imageName = "CampusSecurity"
         
         mapView.addAnnotations([whPin, csPin])
-        border()
     }
     
     func createSearch() {
@@ -70,6 +73,7 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         
     }
     
+    /*
     func getDirection(start: CLLocationCoordinate2D, finish: CLLocationCoordinate2D) {
         let startPM = MKPlacemark(coordinate: start, addressDictionary: nil)
         let finishPM = MKPlacemark(coordinate: finish, addressDictionary: nil)
@@ -81,8 +85,7 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         dr.transportType = .Automobile
         let directions = MKDirections(request: dr) //This will calculate us a route
         directions.calculateDirectionsWithCompletionHandler {(response, error) -> Void in
-            guard let response = response
-                else {
+            guard let response = response else {
                     if let error = error {
                         print ("Error:", error)
                     }
@@ -94,6 +97,7 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             self.mapView.addOverlay((route.polyline), level: MKOverlayLevel.AboveRoads)
         }
     }
+    */
     
     func currentLocation() {
         mapView.delegate = self
@@ -102,8 +106,8 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
-        self.mapView.showsBuildings = true //Having it increases load a lot
-        self.mapView.rotateEnabled = false //Disabled annoying rotation
+        self.mapView.showsBuildings = false //Having it increases load a lot
+        self.mapView.rotateEnabled = true//Disabled annoying rotation
         
         if self.locationManager.location?.coordinate != nil {
             currentSpot = self.locationManager.location!.coordinate
@@ -115,7 +119,7 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     //For custom pins
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        if !(annotation is CustomAnnotation) {
+        guard annotation is CustomAnnotation else {
             return nil
         }
         
@@ -137,15 +141,16 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         return customV
     }
     
+    /*
     func reverseAddress(location: CLLocationCoordinate2D, something: UISearchBar) {
         let alocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
         CLGeocoder().reverseGeocodeLocation(alocation, completionHandler: {(placemarks, error) -> Void in
-            if (error != nil) {
+            guard error == nil else {
                 print("Reverse geocode failed")
                 return
             }
             
-            if (placemarks!.count > 0) {
+            if placemarks!.count > 0 {
                 let place = placemarks![0]
                 print((place.addressDictionary?["Street"])!!)
                 //return (String(place.addressDictionary?["Street"]))
@@ -156,6 +161,7 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             }
         })
     }
+    */
     
     func border() {
         //CLLocation(latitude: ,longitude: )
@@ -165,6 +171,7 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         let polyline = MKPolyline(coordinates: &polyLineCord, count: polyLinePoints.count)
         self.mapView.addOverlay(polyline)
     }
+    
     //array to store all blue light objects
     var blueLightsArray: NSMutableArray = []
     func blueLights(sh: Bool) {
@@ -174,13 +181,11 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         let blLong = [-76.507071, -76.506446, -76.509949, -76.513372, -76.513421, -76.514355, -76.514087, -76.516331, -76.516608, -76.516004, -76.515209, -76.516415, -76.497494, -76.497933, -76.497471,  -76.497948, -76.498151, -76.497865, -76.497740, -76.498158, -76.498021, -76.496618, -76.495883, 76.495386, -76.494686, -76.493141, -76.494458, -76.494284, -76.494703, -76.494104, -76.493692, -76.494316, -76.492179, -76.491696, -76.491683, -76.492972, -76.493336, -76.492542, -76.492495, -76.493992, -76.494643,  -76.495372, -76.494231, -76.494045, -76.494819, -76.494505, -76.495151, -76.494424, -76.493998, -76.495275, -76.492918, -76.490860, -76.491681, -76.491152, -76.490990, -76.491794, -76.491418, -76.491611, -76.491114, -76.493697, -76.495562]
         let size = blLat.count
         
-        //Need to figure out a way to remove this annotation as it is part of Custom Annotation & not MKAnnotation
         for i in 0..<size {
             let blPin = CustomAnnotation()
             blPin.coordinate = CLLocationCoordinate2DMake(blLat[i], blLong[i])
             blPin.title = "Blue Light"
             blPin.imageName = "BlueLight"
-            print ("testing:", sh)
             blueLightsArray.addObject(blPin)
             if (sh == true) {
                 mapView.addAnnotation(blPin)
@@ -188,14 +193,14 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                 mapView.removeAnnotation(blueLightsArray[i] as! MKAnnotation)
             }
         }
-        if (sh == false) {
+        if sh == false {
             blueLightsArray = []
         }
     }
     
     //For polylines
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
-        if overlay is MKPolyline {
+        guard !(overlay is MKPolyline) else {
             let polylineRenderer = MKPolylineRenderer(overlay: overlay)
             polylineRenderer.strokeColor = UIColor.blackColor()
             polylineRenderer.lineWidth = 3
@@ -203,11 +208,6 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         }
         
         return MKPolylineRenderer()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 
@@ -217,11 +217,11 @@ extension SearchTable {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell")!
-        let selected = matches[indexPath.row].placemark //Info about the place
-        cell.textLabel?.text = selected.name //Name
-        cell.detailTextLabel?.text = parseAddress(selected) //Subtitles
-        return cell
+            let cell = tableView.dequeueReusableCellWithIdentifier("cell")!
+            let selected = matches[indexPath.row].placemark //Info about the place
+            cell.textLabel?.text = selected.name //Name
+            cell.detailTextLabel?.text = parseAddress(selected) //Subtitles
+            return cell
     }
 }
 

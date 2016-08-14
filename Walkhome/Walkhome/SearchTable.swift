@@ -6,13 +6,13 @@
 //  Copyright © 2016 COMPSA Web Services. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import MapKit
 
 class SearchTable: UITableViewController {
     var matches: [MKMapItem] = []
-    var mapView: MKMapView? = nil
-    var handleMapSearchDelegate: HandleMapSearch? = nil
+    var mapView: MKMapView?
+    var handleMapSearchDelegate: HandleMapSearch?
     var filteredSearch = [String]()
     
     func parseAddress(selected: MKPlacemark) -> String {

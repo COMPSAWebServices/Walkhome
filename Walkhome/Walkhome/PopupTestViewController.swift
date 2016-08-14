@@ -17,7 +17,7 @@ class PopupTestViewController: UIViewController {
         let url:NSURL = NSURL(string: "tel://")!
         let alertA = UIAlertController(title: messageTitle, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alertA.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-        if (oper == true) {
+        if oper == true {
             alertA.addAction(UIAlertAction(title: "Call Someone", style: UIAlertActionStyle.Default,handler: { UIAlertAction in UIApplication.sharedApplication().openURL(url)}))
         }
         self.presentViewController(alertA, animated: true, completion: nil)
