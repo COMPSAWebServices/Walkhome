@@ -36,6 +36,11 @@ class api {
         request.setBodyContent(parameters)
         //create dataTask using the session object to send data to the server
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            if (data == nil){
+                onReturn(["error":500])
+                return
+            }
+
             let strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
             print("Body: \(strData)")
             var json = [:]
