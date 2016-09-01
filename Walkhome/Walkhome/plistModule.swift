@@ -16,7 +16,7 @@ class accessPlist {
      * @return {NSArray[NSDictionary{String:String}]}: list of all rows matching query
      * Example: accessPlist().get("user", field: "local_id", value: "0")
     */
-    func get(table: String, field: String, value: String)->NSArray?{
+    func get(table: String, field: String)->String?{
         //todo: advanced queries
         //todo: get all rows
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
@@ -24,27 +24,19 @@ class accessPlist {
         let path = documentsDirectory.stringByAppendingPathComponent("localDB.plist")
         
         if let db = NSMutableDictionary(contentsOfFile: path){
-            let tableArray = db.objectForKey(table)! as? NSArray
-            var rowArray = [NSDictionary]()
-            for row in tableArray! {
-                if value == row[field] as! String {
-                    rowArray.append(row as! NSDictionary)
-                }
+            if let tableDict = db.objectForKey(table)! as? NSDictionary{
+                return tableDict[field] as? String
+            }else{
+                return "";
             }
-            return rowArray
         }else{
             if let privPath = NSBundle.mainBundle().pathForResource("localDB", ofType: "plist"){
                 if let db = NSMutableDictionary(contentsOfFile: privPath){
-                    if let tableArray = db.objectForKey(table)! as? NSArray{
-                        var rowArray = [NSDictionary]()
-                        for row in tableArray {
-                            if value == row[field] as! String {
-                                rowArray.append(row as! NSDictionary)
-                            }
-                        }
-                        return rowArray
+                    if let tableDict = db.objectForKey(table)! as? NSDictionary{
+                        return tableDict[field] as? String
                     }else{
-                        print("No table: \(table)")
+                        print("error")
+                        return "";
                     }
                 }else{
                     print("error_read")
@@ -61,23 +53,23 @@ class accessPlist {
      * @return {Bool}: Successful insert or not
      * Example: accessPlist().set("walk", row: ["status": "1", "time": "12345464242", "from": "Toronto", "to": "Dublin"])
      */
-    func set(table: String, row: NSDictionary) -> Bool {
+    func set(table: String, field:String, value:String) -> Bool {
         //todo: confirm that row matches table schema
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
         let documentsDirectory = paths.objectAtIndex(0) as! NSString
         let path = documentsDirectory.stringByAppendingPathComponent("localDB.plist")
         
         if let db = NSMutableDictionary(contentsOfFile: path){
-            let tableArray = db.objectForKey(table)! as? NSMutableArray
-            tableArray?.addObject(row)
-            db.setObject(tableArray!, forKey: table)
+            let tableDict = db.objectForKey(table)! as? NSMutableDictionary
+            tableDict![field] = value;
+            db.setObject(tableDict!, forKey: table)
             return db.writeToFile(path, atomically: true)
         }else{
             if let path = NSBundle.mainBundle().pathForResource("localDB", ofType: "plist"){
                 if let db = NSMutableDictionary(contentsOfFile: path){
-                    let tableArray = db.objectForKey(table)! as? NSMutableArray
-                    tableArray?.addObject(row)
-                    db.setObject(tableArray!, forKey: table)
+                    let tableDict = db.objectForKey(table)! as? NSMutableDictionary
+                    tableDict![field] = value;
+                    db.setObject(tableDict!, forKey: table)
                     return db.writeToFile(path, atomically: true)
                 }else{
                     return false
@@ -86,17 +78,5 @@ class accessPlist {
                 return false
             }
         }
-    }
-    /* Get row from local database
-     * @param table {String}: Name of the table to insert into
-     * @param row {NSDictionary{String:String}}: Row Dictionary to insert
-     * @return {Bool}: Successful insert or not
-     * Example: accessPlist().update("walk", )
-     */
-    func update(table: String, get_field: String, get_value: String, set_field: String, set_value: String) -> Bool {
-        let rows = get(table, field: get_field, value: get_value)
-        let row = rows![0] as! NSMutableDictionary
-        row.setObject(set_value, forKey: set_field)
-        return set(table, row: row)
     }
 }

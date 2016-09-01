@@ -39,7 +39,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         for i in 0..<deviceToken.length {
             tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
         }
-        
+        //update(table: String, get_field: String, get_value: String, set_field: String, set_value: String)
+        if (tokenString != "") {
+            accessPlist().set("user", field: "device_token", value: tokenString)
+            
+        }
         print("Device Token:", tokenString)
     }
     

@@ -20,9 +20,10 @@ class StatusViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let walk: NSDictionary = accessPlist().get("walk", field: "current", value: "1")![0] as! NSDictionary
-        let status:Int = walk["status"] as! Int
-        setProg(status)
+        let status: String = accessPlist().get("walk", field: "status")! as String
+        if let statusInt: Int = Int(status)! {
+            setProg(statusInt)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,6 +37,36 @@ class StatusViewController: UIViewController {
         //todo: move to different module
     }
     @IBAction func viewMap(sender: AnyObject) {
+    }
+    
+    func refresh(){
+        //change nothing to LOADING
+        let phone_number: String = accessPlist().get("user", field: "phone_number")!
+        api().get(["function":"getWalkByUserPhoneNumber","phone_number":phone_number], onReturn: SetRefresh)
+    }
+    func SetRefresh(JSON: NSDictionary){
+        let status = String(JSON["status"]!)
+        let active = String(JSON["walk"]!["active"]!)
+        if(status == "200" && active == "1"){
+            accessPlist().set("walk", field: "id", value: JSON["walk"]!["id"] as! String)
+            accessPlist().set("walk", field: "pick_up_location", value: JSON["walk"]!["pick_up_location"] as! String)
+            accessPlist().set("walk", field: "drop_off_location", value: JSON["walk"]!["drop_off_location"] as! String)
+            accessPlist().set("walk", field: "status", value: JSON["walk"]!["status"] as! String)
+            accessPlist().set("walk", field: "active", value: JSON["walk"]!["active"] as! String)
+            
+            if let statusInt: Int = Int(JSON["walk"]!["status"] as! String)! {
+                setProg(statusInt)
+            }
+            //change LOADING to nothing
+        }else if (status == "200" && active == "0"){
+            //switch to feedback
+            let vc = self.storyboard!.instantiateViewControllerWithIdentifier("feedbackView") as! FeedbackViewController
+            self.presentViewController(vc, animated: true, completion: nil)
+        }else{
+            //switch to map
+            let vc = self.storyboard!.instantiateViewControllerWithIdentifier("mapView") as! UINavigationController
+            self.presentViewController(vc, animated: true, completion: nil)
+        }
     }
     
     func setProg(status:Int){

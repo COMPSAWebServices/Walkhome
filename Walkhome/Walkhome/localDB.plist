@@ -3,32 +3,26 @@
 <plist version="1.0">
 <dict>
 	<key>walk</key>
-	<array>
-		<dict>
-			<key>current</key>
-			<string>1</string>
-			<key>status</key>
-			<string>0</string>
-			<key>time</key>
-			<string>1468692287</string>
-			<key>from</key>
-			<string>Stages</string>
-			<key>to</key>
-			<string>Leggett</string>
-		</dict>
-	</array>
+	<dict>
+		<key>id</key>
+		<string></string>
+		<key>pick_up_location</key>
+		<string></string>
+		<key>drop_off_location</key>
+		<string></string>
+		<key>status</key>
+		<string></string>
+		<key>active</key>
+		<string></string>
+	</dict>
 	<key>user</key>
-	<array>
-		<dict>
-			<key>device_id</key>
-			<string>123</string>
-			<key>id</key>
-			<string>1</string>
-			<key>phone_number</key>
-			<string>6131234567</string>
-			<key>username</key>
-			<string>stevejobs4567</string>
-		</dict>
-	</array>
+	<dict>
+		<key>device_token</key>
+		<string></string>
+		<key>id</key>
+		<string></string>
+		<key>phone_number</key>
+		<string></string>
+	</dict>
 </dict>
 </plist>
