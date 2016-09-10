@@ -14,30 +14,77 @@ protocol HandleMapSearch { //Whatever uses this protocol must use the function a
     func addPin(placemark: MKPlacemark)
 }
 
-class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate {
+class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UITextFieldDelegate {
     @IBOutlet weak var mapView: MKMapView!
     //Gotta clean this part up
     let locationManager = CLLocationManager() //This will give us the user's current location
     var currentSpot: CLLocationCoordinate2D! //Current location
-    var searchController: UISearchController! //To call the search bar
     var destPin: CLLocationCoordinate2D! //End of the road
     var endPin: MKPlacemark?
+    @IBOutlet weak var infoButton: UIButton!
+    @IBOutlet weak var requestButton: UIButton!
+    @IBOutlet weak var callButton: UIButton!
     
-    var sh = Bool()
-    @IBAction func shBL(sender: AnyObject) {
-        sh = !sh
-        blueLights(sh)
-    }
-    
+    @IBOutlet weak var pickUpTextField: UITextField!
+    @IBOutlet weak var DropOffTextField: UITextField!
+
     override func viewDidLoad() {
+        infoButton.layer.cornerRadius = 5
+        infoButton.layer.borderWidth = 0
+        
+        callButton.layer.cornerRadius = 5
+        callButton.layer.borderWidth = 0
+        
+        requestButton.layer.cornerRadius = 5
+        requestButton.layer.borderWidth = 0
+
         super.viewDidLoad()
-        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
-        self.navigationController!.navigationBar.shadowImage = UIImage()
-        self.navigationController!.navigationBar.translucent = true
         currentLocation()
         safetyPin()
-        createSearch()
         border()
+        blueLights(true)
+        self.pickUpTextField.delegate = self;
+        self.DropOffTextField.delegate = self;
+    }
+    
+    @IBAction func hereButton(sender: AnyObject) {
+        reverseAddress(currentSpot, output: pickUpTextField)
+    }
+    @IBAction func infoButton(sender: AnyObject) {
+        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("infoView") as! InfoViewController
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
+
+    @IBAction func requestWalk(sender: AnyObject) {
+        let up = pickUpTextField.text!
+        let down = DropOffTextField.text!
+        if up != "" && down != "" {
+            let phone = accessData().get("phone_number")!
+            let time = createTimeString()
+            //request
+            accessData().set("pick_up_location", value: up)
+            accessData().set("drop_off_location", value: down)
+            accessData().set("time", value: time)
+            accessData().set("status", value: "1")
+            api().get(["function":"addWalk", "team":"None", "request_time":time, "status":"1", "pick_up_location":up, "drop_off_location":down, "phone_number":phone], onReturn: switchToStatus)
+        }else{
+            let alertA = UIAlertController(title: "Error", message: "Fill in both text fields", preferredStyle: UIAlertControllerStyle.Alert)
+            alertA.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            self.presentViewController(alertA, animated: true, completion: nil)
+        }
+    }
+    
+    func switchToStatus(JSON:NSDictionary){
+        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("statusView") as! StatusViewController
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
+    
+    @IBAction func callWalkhome(sender: AnyObject) {
+        let alertA = UIAlertController(title: "Call", message: "Who do you wish to call?", preferredStyle: UIAlertControllerStyle.Alert)
+        alertA.addAction(UIAlertAction(title: "Walkhome", style: UIAlertActionStyle.Default,handler:{UIAlertAction in api().call()} ))
+        alertA.addAction(UIAlertAction(title: "Campus Security", style: UIAlertActionStyle.Default,handler: {UIAlertAction in api().callCS()}))
+        alertA.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default,handler: nil))
+        self.presentViewController(alertA, animated: true, completion: nil)
     }
     
     func safetyPin() {
@@ -53,52 +100,7 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         
         mapView.addAnnotations([whPin, csPin])
     }
-    
-    func createSearch() {
-        let searchTable = storyboard!.instantiateViewControllerWithIdentifier("SearchTable") as! SearchTable
-        self.searchController = UISearchController(searchResultsController: searchTable)
-        self.searchController?.searchResultsUpdater = searchTable
-        let searchBar = searchController!.searchBar
-        searchBar.sizeToFit() //Resize for all screen size
-        self.navigationItem.titleView =  self.searchController.searchBar
-        searchController.hidesNavigationBarDuringPresentation = false //Hides nav
-        searchController.dimsBackgroundDuringPresentation = true
-        self.searchController.searchBar.translucent = true
-        definesPresentationContext = true //This will put the nav and search above the dim overlay
-        self.searchController.searchBar.barTintColor = UIColor.clearColor()
-        self.searchController.searchBar.backgroundColor = UIColor.whiteColor()
-        self.searchController.searchBar.backgroundImage = UIImage()
-        searchTable.mapView = mapView
-        searchTable.handleMapSearchDelegate = self
-        
-    }
-    
-    /*
-    func getDirection(start: CLLocationCoordinate2D, finish: CLLocationCoordinate2D) {
-        let startPM = MKPlacemark(coordinate: start, addressDictionary: nil)
-        let finishPM = MKPlacemark(coordinate: finish, addressDictionary: nil)
-        let startMI = MKMapItem(placemark: startPM)
-        let finishMI = MKMapItem(placemark: finishPM)
-        let dr = MKDirectionsRequest()
-        dr.source = startMI //Starting Point
-        dr.destination = finishMI //Destination Point
-        dr.transportType = .Automobile
-        let directions = MKDirections(request: dr) //This will calculate us a route
-        directions.calculateDirectionsWithCompletionHandler {(response, error) -> Void in
-            guard let response = response else {
-                    if let error = error {
-                        print ("Error:", error)
-                    }
-                    return
-            }
-            let route = response.routes[0]
-            let startPin = CustomAnnotation()
-            startPin.coordinate = route.polyline.coordinate
-            self.mapView.addOverlay((route.polyline), level: MKOverlayLevel.AboveRoads)
-        }
-    }
-    */
-    
+
     func currentLocation() {
         mapView.delegate = self
         self.locationManager.delegate = self
@@ -111,8 +113,11 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         
         if self.locationManager.location?.coordinate != nil {
             currentSpot = self.locationManager.location!.coordinate
-            let region = MKCoordinateRegionMakeWithDistance(self.locationManager.location!.coordinate, 1200, 1200)
-            //reverseAddress(self.locationManager.location!.coordinate, something: searchBar)
+            let region = MKCoordinateRegionMakeWithDistance(self.locationManager.location!.coordinate, 2000, 2000)
+            self.mapView.setRegion(region, animated: true)
+        }else{
+            currentSpot = CLLocationCoordinate2DMake(44.22838027067406, -76.49507761001587)
+            let region = MKCoordinateRegionMakeWithDistance(currentSpot, 4000, 4000)
             self.mapView.setRegion(region, animated: true)
         }
     }
@@ -140,28 +145,27 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         
         return customV
     }
-    
-    /*
-    func reverseAddress(location: CLLocationCoordinate2D, something: UISearchBar) {
+    func reverseAddress(location: CLLocationCoordinate2D, output:UITextField) {
         let alocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
         CLGeocoder().reverseGeocodeLocation(alocation, completionHandler: {(placemarks, error) -> Void in
             guard error == nil else {
-                print("Reverse geocode failed")
+                output.text = "failed"
                 return
             }
             
             if placemarks!.count > 0 {
                 let place = placemarks![0]
-                print((place.addressDictionary?["Street"])!!)
-                //return (String(place.addressDictionary?["Street"]))
-                something.text = (place.addressDictionary?["Street"])!! as? String
+                if let address = (place.addressDictionary?["Street"]){
+                    output.text = "\(address)"
+                }else{
+                    output.text = "Error"
+                }
             } else {
-                print("We encountered a problem")
-                //return
+                output.text = "Error"
             }
         })
     }
-    */
+    
     
     func border() {
         //CLLocation(latitude: ,longitude: )
@@ -209,19 +213,28 @@ class NewMapViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         
         return MKPolylineRenderer()
     }
-}
-
-extension SearchTable {
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return matches.count
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCellWithIdentifier("cell")!
-            let selected = matches[indexPath.row].placemark //Info about the place
-            cell.textLabel?.text = selected.name //Name
-            cell.detailTextLabel?.text = parseAddress(selected) //Subtitles
-            return cell
+
+    func createTimeString() -> String {
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Year, .Month, .Day, .Hour, .Minute], fromDate: date)
+        let year = addZero(components.year)
+        let month = addZero(components.month)
+        let day = addZero(components.day)
+        let minutes = addZero(components.minute)
+        let hour = addZero(components.hour)
+        let seconds = "00"
+        return "\(year)-\(month)-\(day) \(hour):\(minutes):\(seconds)"
+    }
+    func addZero(number: Int) -> String{
+        if number < 10{
+            return "0\(number)"
+        }
+        return "\(number)"
     }
 }
 

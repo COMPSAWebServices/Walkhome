@@ -8,6 +8,22 @@
 
 import Foundation
 
+class accessData {
+    func get(field: String) ->String?{
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let value = defaults.stringForKey(field)
+        if value != nil{
+            return value
+        }else{
+            return ""
+        }
+    }
+    func set(field:String, value:String){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(value, forKey: field)
+    }
+}
+
 class accessPlist {
     /* Get row from local database
      * @param table {String}: Name of the table to look in
@@ -16,7 +32,7 @@ class accessPlist {
      * @return {NSArray[NSDictionary{String:String}]}: list of all rows matching query
      * Example: accessPlist().get("user", field: "local_id", value: "0")
     */
-    func get(table: String, field: String)->String?{
+    /*func get(table: String, field: String)->String?{
         //todo: advanced queries
         //todo: get all rows
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
@@ -46,14 +62,14 @@ class accessPlist {
             }
         }
         return nil
-    }
+    }*/
     /* Get row from local database
      * @param table {String}: Name of the table to insert into
      * @param row {NSDictionary{String:String}}: Row Dictionary to insert
      * @return {Bool}: Successful insert or not
      * Example: accessPlist().set("walk", row: ["status": "1", "time": "12345464242", "from": "Toronto", "to": "Dublin"])
      */
-    func set(table: String, field:String, value:String) -> Bool {
+    /*func set(table: String, field:String, value:String) -> Bool {
         //todo: confirm that row matches table schema
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
         let documentsDirectory = paths.objectAtIndex(0) as! NSString
@@ -78,5 +94,5 @@ class accessPlist {
                 return false
             }
         }
-    }
+    }*/
 }

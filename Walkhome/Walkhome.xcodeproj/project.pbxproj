@@ -11,6 +11,9 @@
 		A0053C781D7727F300AC8706 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0053C6A1D77277E00AC8706 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A02D29CE1D3AA31000710F54 /* plistModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D29CD1D3AA31000710F54 /* plistModule.swift */; };
 		A02D29D01D3AA34900710F54 /* localDB.plist in Resources */ = {isa = PBXBuildFile; fileRef = A02D29CF1D3AA34900710F54 /* localDB.plist */; };
+		A0513D421D818AB000407F6D /* CWS Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A0513D411D818AB000407F6D /* CWS Logo.png */; };
+		A0535BBC1D7A13EF00777993 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0535BBB1D7A13EF00777993 /* Reachability.swift */; };
+		A0535BC51D7A404E00777993 /* infoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0535BC41D7A404E00777993 /* infoViewController.swift */; };
 		A0AFE8F21D3C58CF00DDBB4B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AFE8F11D3C58CF00DDBB4B /* LoginViewController.swift */; };
 		A0AFE8F41D3CF4B700DDBB4B /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AFE8F31D3CF4B700DDBB4B /* StatusViewController.swift */; };
 		A0AFE8F61D3CF84C00DDBB4B /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AFE8F51D3CF84C00DDBB4B /* FeedbackViewController.swift */; };
@@ -19,11 +22,11 @@
 		A0C3F6F21D38972A0016004E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0C3F6F01D38972A0016004E /* Main.storyboard */; };
 		A0C3F6F41D38972A0016004E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0C3F6F31D38972A0016004E /* Assets.xcassets */; };
 		A0C3F6F71D38972A0016004E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0C3F6F51D38972A0016004E /* LaunchScreen.storyboard */; };
+		A0CF924B1D7C6648002F0029 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A0CF924A1D7C6648002F0029 /* logo.png */; };
+		A0CF924D1D7C6B8A002F0029 /* myLocation.png in Resources */ = {isa = PBXBuildFile; fileRef = A0CF924C1D7C6B8A002F0029 /* myLocation.png */; };
 		EF2461891D4ECD620026F7A2 /* SearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2461881D4ECD620026F7A2 /* SearchTable.swift */; };
 		EF80A6C51D3AD7130060CF2C /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF80A6C41D3AD7130060CF2C /* CustomAnnotation.swift */; };
 		EF9F3F3F1D4D4510000B16A1 /* NewMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9F3F3E1D4D4510000B16A1 /* NewMapViewController.swift */; };
-		EF9F3F411D4D4FE8000B16A1 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9F3F401D4D4FE8000B16A1 /* RoundButton.swift */; };
-		EFF26ED01D400C8B00872021 /* PopupTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF26ECF1D400C8B00872021 /* PopupTestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +106,9 @@
 		A0053C5E1D77277D00AC8706 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = SOURCE_ROOT; };
 		A02D29CD1D3AA31000710F54 /* plistModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = plistModule.swift; sourceTree = "<group>"; };
 		A02D29CF1D3AA34900710F54 /* localDB.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = localDB.plist; sourceTree = "<group>"; };
+		A0513D411D818AB000407F6D /* CWS Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CWS Logo.png"; sourceTree = "<group>"; };
+		A0535BBB1D7A13EF00777993 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		A0535BC41D7A404E00777993 /* infoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = infoViewController.swift; sourceTree = "<group>"; };
 		A0AFE8F11D3C58CF00DDBB4B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A0AFE8F31D3CF4B700DDBB4B /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 		A0AFE8F51D3CF84C00DDBB4B /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
@@ -113,11 +119,11 @@
 		A0C3F6F31D38972A0016004E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0C3F6F61D38972A0016004E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0C3F6F81D38972A0016004E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0CF924A1D7C6648002F0029 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		A0CF924C1D7C6B8A002F0029 /* myLocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myLocation.png; sourceTree = "<group>"; };
 		EF2461881D4ECD620026F7A2 /* SearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTable.swift; sourceTree = "<group>"; };
 		EF80A6C41D3AD7130060CF2C /* CustomAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		EF9F3F3E1D4D4510000B16A1 /* NewMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMapViewController.swift; sourceTree = "<group>"; };
-		EF9F3F401D4D4FE8000B16A1 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
-		EFF26ECF1D400C8B00872021 /* PopupTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupTestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +171,7 @@
 		A0C3F6EB1D38972A0016004E /* Walkhome */ = {
 			isa = PBXGroup;
 			children = (
+				A0CF92491D7C6630002F0029 /* images */,
 				A0053C5E1D77277D00AC8706 /* Alamofire.xcodeproj */,
 				A0C3F6EC1D38972A0016004E /* AppDelegate.swift */,
 				EF80A6C41D3AD7130060CF2C /* CustomAnnotation.swift */,
@@ -179,11 +186,21 @@
 				A0AFE8F11D3C58CF00DDBB4B /* LoginViewController.swift */,
 				A0AFE8F31D3CF4B700DDBB4B /* StatusViewController.swift */,
 				A0AFE8F51D3CF84C00DDBB4B /* FeedbackViewController.swift */,
-				EFF26ECF1D400C8B00872021 /* PopupTestViewController.swift */,
 				EF9F3F3E1D4D4510000B16A1 /* NewMapViewController.swift */,
-				EF9F3F401D4D4FE8000B16A1 /* RoundButton.swift */,
+				A0535BBB1D7A13EF00777993 /* Reachability.swift */,
+				A0535BC41D7A404E00777993 /* infoViewController.swift */,
 			);
 			path = Walkhome;
+			sourceTree = "<group>";
+		};
+		A0CF92491D7C6630002F0029 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				A0513D411D818AB000407F6D /* CWS Logo.png */,
+				A0CF924C1D7C6B8A002F0029 /* myLocation.png */,
+				A0CF924A1D7C6648002F0029 /* logo.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,8 +328,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A02D29D01D3AA34900710F54 /* localDB.plist in Resources */,
+				A0CF924B1D7C6648002F0029 /* logo.png in Resources */,
+				A0CF924D1D7C6B8A002F0029 /* myLocation.png in Resources */,
 				A0C3F6F71D38972A0016004E /* LaunchScreen.storyboard in Resources */,
 				A0C3F6F41D38972A0016004E /* Assets.xcassets in Resources */,
+				A0513D421D818AB000407F6D /* CWS Logo.png in Resources */,
 				A0C3F6F21D38972A0016004E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,14 +345,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF9F3F3F1D4D4510000B16A1 /* NewMapViewController.swift in Sources */,
+				A0535BC51D7A404E00777993 /* infoViewController.swift in Sources */,
 				A0AFE8F41D3CF4B700DDBB4B /* StatusViewController.swift in Sources */,
+				A0535BBC1D7A13EF00777993 /* Reachability.swift in Sources */,
 				EF2461891D4ECD620026F7A2 /* SearchTable.swift in Sources */,
 				A0AFE8F21D3C58CF00DDBB4B /* LoginViewController.swift in Sources */,
 				EF80A6C51D3AD7130060CF2C /* CustomAnnotation.swift in Sources */,
-				EF9F3F411D4D4FE8000B16A1 /* RoundButton.swift in Sources */,
 				A0B5C4021D3BDF21002649B7 /* WHAPI.swift in Sources */,
 				A02D29CE1D3AA31000710F54 /* plistModule.swift in Sources */,
-				EFF26ED01D400C8B00872021 /* PopupTestViewController.swift in Sources */,
 				A0AFE8F61D3CF84C00DDBB4B /* FeedbackViewController.swift in Sources */,
 				A0C3F6ED1D38972A0016004E /* AppDelegate.swift in Sources */,
 			);
@@ -408,6 +428,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -432,7 +453,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lucas Bullen (J5CFSMHHR3)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -447,6 +468,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -465,6 +487,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.compsawebservices.Walkhome;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -472,14 +495,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Lucas Bullen (J5CFSMHHR3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lucas Bullen (J5CFSMHHR3)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Walkhome/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.compsawebservices.Walkhome;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

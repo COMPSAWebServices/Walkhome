@@ -8,9 +8,10 @@
 
 import Foundation
 import Alamofire
+import UIKit
 
 class api {
-    let baseURL = "http://api.compsawebservices.com/walkhome/api.php"
+    let baseURL = "http://backstage.compsawebservices.com/walkhome/api.php"
     /* Sending get requests to our backend
      * @param parameters {Dictionary<String, String>}: All the parapeters
      * @param onReturn {(NSDictionary) -> Void}: The desired function to recive the responce from the call
@@ -25,10 +26,16 @@ class api {
                 //print(response.result)   // result of response serialization
                 if let JSON = response.result.value {
                     onReturn(JSON as! NSDictionary)
-                    print("JSON: \(JSON["status"])")
+                    print("JSON: \(JSON)")
                 }else{
                     onReturn(["status":"500"]);
                 }
         }
+    }
+    func call(){
+        UIApplication.sharedApplication().openURL(NSURL(string: "tel://6135339255")!)
+    }
+    func callCS(){
+        UIApplication.sharedApplication().openURL(NSURL(string: "tel://6135336733")!)
     }
 }

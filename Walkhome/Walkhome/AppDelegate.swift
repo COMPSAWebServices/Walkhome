@@ -32,6 +32,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]){
+        print("teehee")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        self.window!.rootViewController =  storyboard.instantiateViewControllerWithIdentifier("statusView") as! StatusViewController
+    }
+    
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
         var tokenString = ""
@@ -41,11 +47,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         //update(table: String, get_field: String, get_value: String, set_field: String, set_value: String)
         if (tokenString != "") {
-            accessPlist().set("user", field: "device_token", value: tokenString)
+            accessData().set("device_token", value: tokenString)
             
         }
         print("Device Token:", tokenString)
     }
+    
+    
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
         print("Failed to register:", error)
