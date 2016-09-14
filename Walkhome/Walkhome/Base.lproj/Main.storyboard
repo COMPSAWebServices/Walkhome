@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -16,112 +16,91 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="613 555 5555" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FZZ-i3-pQW">
-                                <rect key="frame" x="8" y="57" width="304" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="kJR-qs-Qat"/>
-                                </constraints>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="613 555 5555" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FZZ-i3-pQW">
+                                <rect key="frame" x="57" y="453" width="304" height="30"/>
+                                <color key="backgroundColor" red="0.28235294117647058" green="0.67843137254901964" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nP-Mj-khB">
-                                <rect key="frame" x="4" y="133" width="312" height="139"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <string key="text">Walkhome is a fully anonymous service. This account is for the purpose of sending you notifications or calling you about your walk request.</string>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number (This Device):" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89k-hz-iHp">
-                                <rect key="frame" x="8" y="28" width="304" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Phone Number (This Device):" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89k-hz-iHp">
+                                <rect key="frame" x="57" y="424" width="304" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="paU-gL-65m"/>
+                                    <constraint firstAttribute="width" constant="304" id="6FB-qe-gZw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IW7-zt-MKd">
-                                <rect key="frame" x="8" y="426" width="304" height="46"/>
-                                <color key="backgroundColor" red="0.1764705882" green="0.19215686269999999" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="qFE-h5-KrZ">
+                                <rect key="frame" x="56" y="53" width="302" height="106"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="4vF-KH-SWl"/>
+                                    <constraint firstAttribute="width" constant="302" id="Zph-2G-CTV"/>
+                                    <constraint firstAttribute="height" constant="106" id="lgP-1Y-F6H"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uh5-Ku-xbU">
+                                <rect key="frame" x="157" y="129" width="568" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="QPg-nX-RSR"/>
+                                    <constraint firstAttribute="width" constant="568" id="j9Y-aj-wgU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.54117649793624878" green="0.17647059261798859" blue="0.19215686619281769" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IW7-zt-MKd">
+                                <rect key="frame" x="87" y="682" width="245" height="46"/>
+                                <color key="backgroundColor" red="0.26666666666666666" green="0.85882352941176465" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="bs8-EB-kVi"/>
+                                    <constraint firstAttribute="width" constant="245" id="m95-bD-VAJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <color key="tintColor" red="1" green="0.89411764709999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Login">
+                                <state key="normal" title="LOGIN">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="createAccount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1CR-TT-q2D"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C36-Pu-VoB">
-                                <rect key="frame" x="-16" y="95" width="352" height="322.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <connections>
-                                    <action selector="closeNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MKZ-2c-TZT"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="qFE-h5-KrZ">
-                                <rect key="frame" x="4" y="280" width="312" height="137.5"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nP-Mj-khB">
+                                <rect key="frame" x="21" y="183" width="372" height="176"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="qFE-h5-KrZ" secondAttribute="height" multiplier="152:67" id="U6h-Le-aDc"/>
+                                    <constraint firstAttribute="height" constant="176" id="kFk-aM-pAO"/>
                                 </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uh5-Ku-xbU">
-                                <rect key="frame" x="12" y="95" width="296" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Cdi-cV-Vn1"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.54117649793624878" green="0.17647059261798859" blue="0.19215686619281769" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <string key="text">Walkhome is a fully anonymous service. This account is for the purpose of sending you notifications or calling you about your walk request.</string>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0078431372549019607" green="0.58823529411764708" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.26666666666666666" green="0.30980392156862746" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="6nP-Mj-khB" firstAttribute="top" secondItem="Uh5-Ku-xbU" secondAttribute="bottom" constant="8" id="0Eh-eE-0lf"/>
-                            <constraint firstItem="FZZ-i3-pQW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-8" id="1mP-hM-m1U"/>
-                            <constraint firstItem="C36-Pu-VoB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-32" id="4Ac-cd-jei"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="FZZ-i3-pQW" secondAttribute="trailing" constant="-8" id="4h0-1Y-8oU"/>
-                            <constraint firstItem="C36-Pu-VoB" firstAttribute="top" secondItem="FZZ-i3-pQW" secondAttribute="bottom" constant="8" id="7Ms-Nv-kGF"/>
-                            <constraint firstItem="89k-hz-iHp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="E3m-fb-fgr"/>
-                            <constraint firstItem="IW7-zt-MKd" firstAttribute="top" secondItem="qFE-h5-KrZ" secondAttribute="bottom" constant="8.5" id="EjH-hA-r4j"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IW7-zt-MKd" secondAttribute="bottom" constant="8" id="Idn-4c-6Z4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="IW7-zt-MKd" secondAttribute="trailing" constant="-8" id="Mk0-H4-0Pg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="C36-Pu-VoB" secondAttribute="trailing" constant="-32" id="NaC-7t-oH9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="89k-hz-iHp" secondAttribute="trailing" constant="-8" id="PcG-F3-tZ2"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qFE-h5-KrZ" secondAttribute="trailing" constant="-12" id="PjH-8L-xTk"/>
-                            <constraint firstItem="FZZ-i3-pQW" firstAttribute="top" secondItem="89k-hz-iHp" secondAttribute="bottom" constant="8" id="Rh5-Rf-sm9"/>
-                            <constraint firstItem="89k-hz-iHp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-8" id="W1f-1K-53o"/>
-                            <constraint firstItem="IW7-zt-MKd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-8" id="X9U-1o-qjB"/>
-                            <constraint firstItem="IW7-zt-MKd" firstAttribute="top" secondItem="FZZ-i3-pQW" secondAttribute="bottom" constant="37" id="Yga-By-xef"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IW7-zt-MKd" secondAttribute="bottom" constant="466" id="ZBM-xw-t2V"/>
-                            <constraint firstItem="Uh5-Ku-xbU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-4" id="ZX3-el-vNU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Uh5-Ku-xbU" secondAttribute="trailing" constant="-4" id="dmZ-ue-6nc"/>
-                            <constraint firstItem="IW7-zt-MKd" firstAttribute="top" secondItem="C36-Pu-VoB" secondAttribute="bottom" constant="8.5" id="fmY-Po-HVX"/>
-                            <constraint firstItem="C36-Pu-VoB" firstAttribute="top" secondItem="FZZ-i3-pQW" secondAttribute="bottom" constant="8" id="g8j-gW-PR4"/>
-                            <constraint firstItem="Uh5-Ku-xbU" firstAttribute="top" secondItem="FZZ-i3-pQW" secondAttribute="bottom" constant="8" id="gMo-YE-lFA"/>
-                            <constraint firstItem="FZZ-i3-pQW" firstAttribute="top" secondItem="89k-hz-iHp" secondAttribute="bottom" constant="8" id="gjv-Wb-7wy"/>
-                            <constraint firstItem="qFE-h5-KrZ" firstAttribute="top" secondItem="6nP-Mj-khB" secondAttribute="bottom" constant="8" id="h9Q-FZ-Syc"/>
-                            <constraint firstItem="IW7-zt-MKd" firstAttribute="top" secondItem="qFE-h5-KrZ" secondAttribute="bottom" constant="8.5" id="hhf-wI-pib"/>
-                            <constraint firstItem="6nP-Mj-khB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-12" id="mRb-KN-FpM"/>
-                            <constraint firstItem="6nP-Mj-khB" firstAttribute="top" secondItem="Uh5-Ku-xbU" secondAttribute="bottom" constant="8" id="nGq-K1-nPN"/>
-                            <constraint firstItem="qFE-h5-KrZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-12" id="sC6-fK-l3z"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6nP-Mj-khB" secondAttribute="trailing" constant="-12" id="tN1-fN-qRP"/>
+                            <constraint firstItem="qFE-h5-KrZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="36" id="2xa-w6-wW0"/>
+                            <constraint firstItem="6nP-Mj-khB" firstAttribute="top" secondItem="Uh5-Ku-xbU" secondAttribute="bottom" constant="24" id="3Zq-fg-G6B"/>
+                            <constraint firstItem="FZZ-i3-pQW" firstAttribute="centerX" secondItem="IW7-zt-MKd" secondAttribute="centerX" id="9fn-W1-UIs"/>
+                            <constraint firstItem="89k-hz-iHp" firstAttribute="leading" secondItem="FZZ-i3-pQW" secondAttribute="leading" id="ACh-8P-Hzc"/>
+                            <constraint firstItem="qFE-h5-KrZ" firstAttribute="trailing" secondItem="6nP-Mj-khB" secondAttribute="trailing" constant="-35" id="CmK-hX-IQA"/>
+                            <constraint firstItem="Uh5-Ku-xbU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="157" id="Dan-F0-4yD"/>
+                            <constraint firstItem="6nP-Mj-khB" firstAttribute="centerX" secondItem="89k-hz-iHp" secondAttribute="centerX" constant="-1" id="EvK-9A-agb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qFE-h5-KrZ" secondAttribute="trailing" constant="36" id="Fau-pG-bgs"/>
+                            <constraint firstItem="qFE-h5-KrZ" firstAttribute="leading" secondItem="6nP-Mj-khB" secondAttribute="leading" constant="35" id="I0M-9A-HNo"/>
+                            <constraint firstItem="FZZ-i3-pQW" firstAttribute="top" secondItem="89k-hz-iHp" secondAttribute="bottom" constant="8" symbolic="YES" id="KLP-aA-1dY"/>
+                            <constraint firstItem="FZZ-i3-pQW" firstAttribute="top" secondItem="6nP-Mj-khB" secondAttribute="bottom" constant="94" id="PiR-6V-Cwi"/>
+                            <constraint firstItem="Uh5-Ku-xbU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="109" id="fNL-EJ-qTW"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IW7-zt-MKd" secondAttribute="bottom" constant="8" id="nBE-T8-zbj"/>
+                            <constraint firstItem="89k-hz-iHp" firstAttribute="trailing" secondItem="FZZ-i3-pQW" secondAttribute="trailing" id="vHr-Ca-MGI"/>
+                            <constraint firstItem="qFE-h5-KrZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="53" id="yPb-Ik-om6"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Yga-By-xef"/>
-                                <exclude reference="ZBM-xw-t2V"/>
-                            </mask>
-                        </variation>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="loginButton" destination="IW7-zt-MKd" id="Ag2-nH-Hq2"/>
                         <outlet property="phoneTextField" destination="FZZ-i3-pQW" id="VI3-kj-YPA"/>
@@ -130,7 +109,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="684" y="349"/>
+            <point key="canvasLocation" x="513" y="349"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="Lck-Ab-AxS">
@@ -141,11 +120,11 @@
                         <viewControllerLayoutGuide type="bottom" id="tUj-S5-zM0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Rsl-cw-nPM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWi-A2-6rd">
-                                <rect key="frame" x="-4" y="20" width="328" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <color key="backgroundColor" red="0.0078431372550000003" green="0.58823529409999997" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Vah-gt-mHM"/>
@@ -167,7 +146,7 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHV-XU-JUS">
-                                <rect key="frame" x="140" y="426" width="176" height="46"/>
+                                <rect key="frame" x="144" y="682" width="262" height="46"/>
                                 <color key="backgroundColor" red="0.1764705882" green="0.19215686269999999" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="unM-D8-ZcG"/>
@@ -180,7 +159,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DNg-OO-1du">
-                                <rect key="frame" x="8" y="372" width="304" height="46"/>
+                                <rect key="frame" x="12" y="628" width="390" height="46"/>
                                 <color key="backgroundColor" red="1" green="0.89411764709999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="OtQ-YY-9x4"/>
@@ -193,7 +172,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8WV-ah-tYx">
-                                <rect key="frame" x="8" y="101" width="304" height="263"/>
+                                <rect key="frame" x="12" y="101" width="390" height="519"/>
                                 <color key="backgroundColor" red="0.0078431372550000003" green="0.58823529409999997" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Walkhome is a student-run safety service in Kingston, Ontario. We provide safe walks to students both on the Queen’s University Campus and within the Kingston community. We are a completely anonymous and confidential service, so our staff members do not wear any clothes identifying them as a Walkhome team. We are inclusive to all students on campus, no matter your year or faculty. When you request a walk, teams of one male and one female student will accompany you to a destination of your choosing. Whether you want enjoyable conversation, safe escort for your walk, or friends to accompany you, Walkhome is the place to call!
 
@@ -214,7 +193,7 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Walkhome Mobile Application" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NbS-hb-Jcc">
-                                <rect key="frame" x="8" y="72" width="304" height="21"/>
+                                <rect key="frame" x="12" y="72" width="390" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Ja5-ys-OOl"/>
                                 </constraints>
@@ -223,7 +202,7 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zma-6t-MoA">
-                                <rect key="frame" x="4" y="426" width="128" height="46"/>
+                                <rect key="frame" x="8" y="682" width="128" height="46"/>
                                 <color key="backgroundColor" red="0.1764705882" green="0.19215686269999999" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="Q1J-65-CV8"/>
@@ -263,7 +242,7 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                             <constraint firstItem="tUj-S5-zM0" firstAttribute="top" secondItem="KHV-XU-JUS" secondAttribute="bottom" constant="8" id="zQt-4t-OIE"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="callButton" destination="Zma-6t-MoA" id="fxn-6s-F0T"/>
                         <outlet property="callCSButton" destination="KHV-XU-JUS" id="CrO-KS-YJl"/>
@@ -272,7 +251,7 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iOI-rC-jxO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1059" y="-214"/>
+            <point key="canvasLocation" x="2655" y="349"/>
         </scene>
         <!--New Map View Controller-->
         <scene sceneID="H07-Ks-VF4">
@@ -283,14 +262,14 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                         <viewControllerLayoutGuide type="bottom" id="glP-lb-BhM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fzs-bT-dF7">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="p9U-Lh-DT4">
-                                <rect key="frame" x="-4" y="0.0" width="328" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Qy-Rh-OiI">
-                                <rect key="frame" x="-4" y="0.0" width="328" height="115"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="115"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick Up:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjR-4u-g1y">
                                         <rect key="frame" x="8" y="32" width="64" height="21"/>
@@ -302,8 +281,10 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Lsf-GN-qfK">
-                                        <rect key="frame" x="87" y="28" width="171" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Lsf-GN-qfK">
+                                        <rect key="frame" x="87" y="28" width="257" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="dau-vx-GYR"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="sr3-Xw-S4h"/>
@@ -311,8 +292,10 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mcS-Zn-296">
-                                        <rect key="frame" x="87" y="70" width="225" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mcS-Zn-296">
+                                        <rect key="frame" x="87" y="70" width="311" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Di3-Je-qW6"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="b5t-9w-NbS"/>
@@ -321,7 +304,7 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZu-dc-LXe">
-                                        <rect key="frame" x="266" y="20" width="46" height="46"/>
+                                        <rect key="frame" x="352" y="20" width="46" height="46"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46" id="HIE-tE-1iL"/>
@@ -347,7 +330,7 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0078431372550000003" green="0.58823529409999997" blue="0.7843137255" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.25882352941176467" green="0.38039215686274508" blue="0.59999999999999998" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="Lsf-GN-qfK" firstAttribute="centerY" secondItem="DZu-dc-LXe" secondAttribute="centerY" id="0AO-U4-n0G"/>
                                     <constraint firstItem="DZu-dc-LXe" firstAttribute="leading" secondItem="Lsf-GN-qfK" secondAttribute="trailing" constant="8" id="1y7-pJ-mxF"/>
@@ -376,17 +359,17 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vYC-Vv-qJ4">
-                                <rect key="frame" x="-4" y="392" width="328" height="88"/>
+                                <rect key="frame" x="0.0" y="648" width="414" height="88"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9qx-TM-Wu9">
-                                        <rect key="frame" x="260" y="20" width="60" height="60"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9qx-TM-Wu9">
+                                        <rect key="frame" x="333" y="28" width="81" height="60"/>
                                         <color key="backgroundColor" red="1" green="0.89411764709999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="dcf-cR-flt"/>
+                                            <constraint firstAttribute="width" constant="75" id="dcf-cR-flt"/>
                                             <constraint firstAttribute="height" constant="60" id="fFB-HA-SKl"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <state key="normal" title="Call">
+                                        <state key="normal" title="CALL">
                                             <color key="titleColor" red="0.1764705882" green="0.19215686269999999" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -394,14 +377,14 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="At6-HZ-sTQ">
-                                        <rect key="frame" x="76" y="20" width="176" height="60"/>
-                                        <color key="backgroundColor" red="0.1764705882" green="0.19215686269999999" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="76" y="28" width="262" height="60"/>
+                                        <color key="backgroundColor" red="1" green="0.13725490196078433" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="OEe-UB-isG"/>
                                             <constraint firstAttribute="height" constant="60" id="iVC-8T-6EM"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <state key="normal" title="Request Walk">
+                                        <state key="normal" title="REQUEST">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <variation key="default">
@@ -414,16 +397,16 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWV-fG-CpA">
-                                        <rect key="frame" x="8" y="20" width="60" height="60"/>
-                                        <color key="backgroundColor" red="1" green="0.89411764709999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="0.0" y="28" width="76" height="60"/>
+                                        <color key="backgroundColor" red="0.32941176470588235" green="0.69411764705882351" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="5Xp-VW-dbP"/>
-                                            <constraint firstAttribute="width" constant="60" id="OF8-Ru-cy4"/>
+                                            <constraint firstAttribute="width" constant="76" id="OF8-Ru-cy4"/>
                                             <constraint firstAttribute="height" constant="60" id="qaP-84-oPw"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <state key="normal" title="Info">
-                                            <color key="titleColor" red="0.1764705882" green="0.19215686269999999" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="INFO">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -435,20 +418,20 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0078431372550000003" green="0.58823529409999997" blue="0.7843137255" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="bWV-fG-CpA" firstAttribute="leading" secondItem="vYC-Vv-qJ4" secondAttribute="leading" constant="8" id="7PC-ad-rdL"/>
-                                    <constraint firstItem="9qx-TM-Wu9" firstAttribute="leading" secondItem="At6-HZ-sTQ" secondAttribute="trailing" constant="8" id="Cpu-rt-51F"/>
+                                    <constraint firstItem="bWV-fG-CpA" firstAttribute="leading" secondItem="vYC-Vv-qJ4" secondAttribute="leading" id="7PC-ad-rdL"/>
+                                    <constraint firstItem="9qx-TM-Wu9" firstAttribute="leading" secondItem="At6-HZ-sTQ" secondAttribute="trailing" constant="1" id="Cpu-rt-51F"/>
                                     <constraint firstAttribute="bottom" secondItem="At6-HZ-sTQ" secondAttribute="bottom" id="I7N-16-gFE"/>
-                                    <constraint firstItem="At6-HZ-sTQ" firstAttribute="leading" secondItem="bWV-fG-CpA" secondAttribute="trailing" constant="8" id="LYz-UJ-t8b"/>
-                                    <constraint firstAttribute="bottom" secondItem="At6-HZ-sTQ" secondAttribute="bottom" constant="8" id="T3r-Mg-gya"/>
-                                    <constraint firstAttribute="bottom" secondItem="bWV-fG-CpA" secondAttribute="bottom" constant="8" id="VL7-HP-d3e"/>
-                                    <constraint firstAttribute="trailing" secondItem="9qx-TM-Wu9" secondAttribute="trailing" constant="8" id="chQ-qT-RlF"/>
-                                    <constraint firstItem="At6-HZ-sTQ" firstAttribute="leading" secondItem="bWV-fG-CpA" secondAttribute="trailing" constant="8" id="dvE-Pf-Xnl"/>
+                                    <constraint firstItem="At6-HZ-sTQ" firstAttribute="leading" secondItem="bWV-fG-CpA" secondAttribute="trailing" id="LYz-UJ-t8b"/>
+                                    <constraint firstAttribute="bottom" secondItem="At6-HZ-sTQ" secondAttribute="bottom" id="T3r-Mg-gya"/>
+                                    <constraint firstAttribute="bottom" secondItem="bWV-fG-CpA" secondAttribute="bottom" id="VL7-HP-d3e"/>
+                                    <constraint firstAttribute="trailing" secondItem="9qx-TM-Wu9" secondAttribute="trailing" id="chQ-qT-RlF"/>
+                                    <constraint firstItem="At6-HZ-sTQ" firstAttribute="leading" secondItem="bWV-fG-CpA" secondAttribute="trailing" id="dvE-Pf-Xnl"/>
                                     <constraint firstAttribute="height" constant="88" id="eFp-o6-27U"/>
-                                    <constraint firstItem="9qx-TM-Wu9" firstAttribute="leading" secondItem="At6-HZ-sTQ" secondAttribute="trailing" constant="8" id="gN5-vw-fjp"/>
+                                    <constraint firstItem="9qx-TM-Wu9" firstAttribute="leading" secondItem="At6-HZ-sTQ" secondAttribute="trailing" constant="1" id="gN5-vw-fjp"/>
                                     <constraint firstItem="At6-HZ-sTQ" firstAttribute="top" secondItem="vYC-Vv-qJ4" secondAttribute="top" id="miH-hs-Lwm"/>
-                                    <constraint firstAttribute="bottom" secondItem="9qx-TM-Wu9" secondAttribute="bottom" constant="8" id="ulb-zm-zVd"/>
+                                    <constraint firstAttribute="bottom" secondItem="9qx-TM-Wu9" secondAttribute="bottom" id="ulb-zm-zVd"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -458,7 +441,7 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                                 </variation>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0078431377187371254" green="0.58823531866073608" blue="0.78431373834609985" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.25882352941176467" green="0.38039215686274508" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="0Qy-Rh-OiI" firstAttribute="top" secondItem="qJq-TI-Qrj" secondAttribute="bottom" id="3az-mp-cpj"/>
                             <constraint firstItem="vYC-Vv-qJ4" firstAttribute="leading" secondItem="p9U-Lh-DT4" secondAttribute="leading" id="4o5-oF-y2u"/>
@@ -488,7 +471,7 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                             </mask>
                         </variation>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="DropOffTextField" destination="mcS-Zn-296" id="3qy-dh-VPe"/>
                         <outlet property="callButton" destination="9qx-TM-Wu9" id="TCS-cg-8ms"/>
@@ -500,7 +483,7 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sAa-sL-Shh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1059" y="348"/>
+            <point key="canvasLocation" x="1073" y="349"/>
         </scene>
         <!--Title-->
         <scene sceneID="rNc-oP-75H">
@@ -511,11 +494,11 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                         <viewControllerLayoutGuide type="bottom" id="QKy-MS-qIG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MsG-Wn-pxS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OId-dw-hdA">
-                                <rect key="frame" x="-4" y="20" width="328" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <color key="backgroundColor" red="0.0078431372550000003" green="0.58823529409999997" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Qok-tE-iMd"/>
@@ -535,8 +518,8 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                                 </variation>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBb-B9-Xyn">
-                                <rect key="frame" x="4" y="426" width="312" height="46"/>
-                                <color key="backgroundColor" red="0.1764705882" green="0.19215686269999999" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="8" y="682" width="398" height="46"/>
+                                <color key="backgroundColor" red="0.1764705882" green="0.19215686269999999" blue="0.78449127764697968" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="kBe-KW-R3y"/>
                                 </constraints>
@@ -548,7 +531,7 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZSp-sR-rZy">
-                                <rect key="frame" x="4" y="372" width="312" height="46"/>
+                                <rect key="frame" x="8" y="628" width="398" height="46"/>
                                 <color key="backgroundColor" red="1" green="0.89411764705882346" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="6ag-Yf-Xfb"/>
@@ -568,8 +551,8 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOj-u1-So9">
-                                <rect key="frame" x="4" y="318" width="312" height="46"/>
-                                <color key="backgroundColor" red="0.54117647059999996" green="0.1764705882" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="8" y="574" width="398" height="46"/>
+                                <color key="backgroundColor" red="0.87076959140536903" green="0.1764705882" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="0qh-xs-PLM"/>
                                     <constraint firstAttribute="height" constant="46" id="PHJ-lv-bJs"/>
@@ -587,13 +570,13 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Your request has been received. The next available walking team will be heading your way." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wSK-mz-1ku">
-                                <rect key="frame" x="12" y="221" width="288" height="89"/>
+                                <rect key="frame" x="16" y="221" width="374" height="345"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request sent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1z6-8g-iym">
-                                <rect key="frame" x="12" y="76" width="296" height="21"/>
+                                <rect key="frame" x="16" y="76" width="382" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="xRs-mK-ShV"/>
                                 </constraints>
@@ -602,7 +585,7 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request recived" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfs-zD-N38">
-                                <rect key="frame" x="12" y="105" width="296" height="21"/>
+                                <rect key="frame" x="16" y="105" width="382" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="pOW-te-gcg"/>
                                 </constraints>
@@ -611,7 +594,7 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Walkers on their way" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhD-wu-Y2Q">
-                                <rect key="frame" x="12" y="134" width="296" height="21"/>
+                                <rect key="frame" x="16" y="134" width="382" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="9Tg-wm-QCl"/>
                                 </constraints>
@@ -620,7 +603,7 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Walk in progress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWG-4o-0e2">
-                                <rect key="frame" x="12" y="163" width="296" height="21"/>
+                                <rect key="frame" x="16" y="163" width="382" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="s2s-pB-Txo"/>
                                 </constraints>
@@ -629,7 +612,7 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Walk completed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUJ-zc-aHO">
-                                <rect key="frame" x="12" y="192" width="296" height="21"/>
+                                <rect key="frame" x="16" y="192" width="382" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="0yY-xT-KFV"/>
                                 </constraints>
@@ -678,7 +661,7 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="mH5-c7-opv"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="callButton" destination="ZSp-sR-rZy" id="e0z-fZ-uUc"/>
                         <outlet property="cancelButton" destination="rOj-u1-So9" id="tjA-Gc-DbK"/>
@@ -694,7 +677,7 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="29I-O4-Luw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1401" y="349"/>
+            <point key="canvasLocation" x="1601" y="349"/>
         </scene>
         <!--Feedback View Controller-->
         <scene sceneID="VJh-In-Pf2">
@@ -705,11 +688,11 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                         <viewControllerLayoutGuide type="bottom" id="Pnl-5Z-mak"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2z7-Ts-0uN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdW-lb-yAn">
-                                <rect key="frame" x="-4" y="20" width="328" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <color key="backgroundColor" red="0.0078431372550000003" green="0.58823529409999997" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="4US-Ik-OIR"/>
@@ -730,7 +713,7 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                                 </items>
                             </navigationBar>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PXU-my-JZm">
-                                <rect key="frame" x="263" y="348" width="51" height="31"/>
+                                <rect key="frame" x="353" y="604" width="51" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="LrO-ZC-9bQ"/>
                                     <constraint firstAttribute="width" constant="49" id="hBZ-kj-YD3"/>
@@ -738,7 +721,7 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                                 <color key="onTintColor" red="1" green="0.89411764709999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Previous Walk Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3w-oh-7Ae">
-                                <rect key="frame" x="4" y="392" width="218" height="21"/>
+                                <rect key="frame" x="8" y="648" width="218" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="R06-x9-RIO"/>
                                     <constraint firstAttribute="width" constant="218" id="ZZI-pC-h8J"/>
@@ -748,7 +731,7 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kE3-9W-Xjd">
-                                <rect key="frame" x="263" y="387" width="51" height="31"/>
+                                <rect key="frame" x="353" y="643" width="51" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="4uP-Jv-mWi"/>
                                     <constraint firstAttribute="height" constant="31" id="mto-gv-0fa"/>
@@ -756,13 +739,13 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                                 <color key="onTintColor" red="1" green="0.89411764709999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </switch>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ogx-m4-hsL">
-                                <rect key="frame" x="4" y="101" width="312" height="239"/>
+                                <rect key="frame" x="8" y="101" width="398" height="495"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feedback on walk / app / Walkhome:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeB-db-PXP">
-                                <rect key="frame" x="4" y="72" width="312" height="21"/>
+                                <rect key="frame" x="8" y="72" width="398" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Id1-n6-Ju4"/>
                                 </constraints>
@@ -771,7 +754,7 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date (required)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZK-OX-FND">
-                                <rect key="frame" x="4" y="353" width="116" height="21"/>
+                                <rect key="frame" x="8" y="609" width="116" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="FoA-La-Buo"/>
                                     <constraint firstAttribute="width" constant="116" id="UAd-Aw-h5C"/>
@@ -781,7 +764,7 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lWN-wn-P69">
-                                <rect key="frame" x="4" y="426" width="312" height="46"/>
+                                <rect key="frame" x="8" y="682" width="398" height="46"/>
                                 <color key="backgroundColor" red="0.1764705882" green="0.19215686269999999" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="2Wi-b0-Xu3"/>
@@ -835,7 +818,7 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                             </mask>
                         </variation>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="doneButton" destination="lWN-wn-P69" id="yZY-8z-ajp"/>
                         <outlet property="locationSwitch" destination="kE3-9W-Xjd" id="FqO-2U-b5c"/>
@@ -844,7 +827,7 @@ If you are looking for our office, we can be found in JDUC 044. If you are in th
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQL-za-Kcd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1401" y="-214"/>
+            <point key="canvasLocation" x="2130" y="349"/>
         </scene>
     </scenes>
     <resources>
